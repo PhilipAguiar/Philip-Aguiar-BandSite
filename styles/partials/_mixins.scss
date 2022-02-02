@@ -1,0 +1,69 @@
+@use "variables" as *;
+
+@mixin tablet {
+    @media (min-width: $tablet-breakpoint) {
+        @content;
+    }
+};
+
+@mixin desktop {
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
+};
+
+@mixin mobile-header {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+  
+  @mixin mobile-subheader {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+  }
+  
+  @mixin mobile-copy {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+  
+  @mixin mobile-labels-buttons {
+    font-size: 10px;
+    line-height: 20px;
+    font-weight: 700;
+  }
+  
+  @mixin tablet-page-header {
+    font-size: 60px;
+    line-height: 68px;
+    font-weight: 700;
+  }
+  
+  @mixin tablet-section-header {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+  }
+  @mixin tablet-subheader {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+  @mixin tablet-body-copy {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+  @mixin tablet-footer-copy {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  @mixin tablet-labels-buttons{
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+  }

@@ -1,0 +1,186 @@
+@use "partials/mixins" as *;
+@use "partials/colors" as *;
+@use "partials/typography" as *;
+@use "partials/variables" as *;
+
+* {
+  font-family: "Avenir";
+  margin: 0;
+  padding: 0;
+}
+
+body {
+}
+.header {
+  padding-top: 1rem ;
+  background-color: $band-site-black;
+  text-align: center;
+
+  
+
+  &__logo {
+    padding-bottom: 1rem;
+    width: 30%;
+    max-width: 120px;
+    max-height: 20px;
+
+    // @include tablet{
+    //   max-width: 1000px;
+    //   max-height: 1000px;
+    // }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+
+    
+
+    &__item {
+      list-style-type: none;
+      width: 50%;
+      &--active {
+        color: $white;
+        border-bottom: $white solid 4px;
+        padding-bottom: 3%;
+      }
+      &__text {
+        color: $mercury;
+        @include mobile-subheader;
+        margin: 0;
+        
+        &--active {
+          font-weight: 700;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  background-image: url(../assets/images/hero-bio.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height:65vw;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @include tablet{
+    min-height: 80vh;
+    
+  }
+
+  
+  &__overlay{
+    z-index: 0;
+    background: #323232;
+    opacity: 0.5;
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+  }
+  &__header {
+    z-index: 1;
+    color: $white;
+    padding: 2rem;
+    @include mobile-header;
+    font-weight: 600;
+    @include tablet{
+      @include tablet-page-header;
+      font-weight:600;
+    }
+  }
+
+}
+
+.about-us {
+  padding: $site-padding;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    padding: 24px 0;
+  }
+  &__image {
+    margin: auto;
+    padding-bottom: 16px;
+    max-width: 100%;
+  }
+  &__caption {
+    @include mobile-subheader;
+    color: $band-site-black;
+  }
+  &__sub-header {
+    @include mobile-subheader;
+    color: $band-site-black;
+  }
+  &__text {
+    color: $band-site-black;
+    @include mobile-copy;
+    padding-bottom: 16px;
+  }
+}
+
+.photo-gallery {
+  padding: $site-padding;
+  background-color: $alabaster;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    padding: 24px 0 16px 0;
+  }
+
+  &__image {
+    padding-bottom: 16px;
+  }
+}
+
+.footer {
+  background-color: $band-site-black;
+  color: $white;
+  padding: $site-padding;
+  &__header {
+    padding: 24px 0 16px 0;
+    @include mobile-header;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__image-container {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+  &__image {
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__header {
+      @include mobile-subheader;
+
+    }
+    &__text {
+      @include mobile-copy
+    }
+  }
+  &__logo{
+    width: 40%;
+    padding: 24px 0 16px;
+  }
+  &__copyright {
+    @include mobile-copy;
+    font-size:10px;
+    
+  }
+}
+
+.component-padding{
+  padding-bottom: $component-padding;
+}
