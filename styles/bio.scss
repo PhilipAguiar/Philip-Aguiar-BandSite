@@ -11,23 +11,26 @@
 
 body {
 }
-.header {
-  padding-top: 1rem ;
+.nav {
+  padding-top: 1rem;
   background-color: $band-site-black;
   text-align: center;
 
-  
+  @include tablet {
+    @include site-padding-tablet;
+    display: flex;
+  }
 
   &__logo {
-    padding-bottom: 1rem;
+    @include site-padding-mobile;
+    padding-bottom: 0.5rem;
     width: 30%;
     max-width: 120px;
     max-height: 20px;
 
-    // @include tablet{
-    //   max-width: 1000px;
-    //   max-height: 1000px;
-    // }
+    @include tablet {
+      padding: 24px 36px 0px 0;
+    }
   }
 
   &__list {
@@ -35,26 +38,37 @@ body {
     justify-content: space-around;
     padding: 0;
 
-    
+    @include tablet {
+      display: flex;
+      justify-content: space-around;
+      width: 30%;
+    }
+  }
+  &__section {
+    list-style-type: none;
+    width: 50%;
+    height: 100%;
 
-    &__item {
-      list-style-type: none;
-      width: 50%;
-      &--active {
-        color: $white;
-        border-bottom: $white solid 4px;
-        padding-bottom: 3%;
-      }
-      &__text {
-        color: $mercury;
-        @include mobile-subheader;
-        margin: 0;
-        
-        &--active {
-          font-weight: 700;
-          color: $white;
-        }
-      }
+    @include tablet {
+      width: auto;
+      padding: 24px 0;
+    }
+
+    &--active {
+      color: $white;
+      border-bottom: $white solid 4px;
+      padding-bottom: 3%;
+      box-sizing: border-box;
+    }
+  }
+  &__text {
+    color: $silver;
+    @include subheader-mobile;
+    margin: 0;
+
+    &--active {
+      font-weight: 400;
+      color: $white;
     }
   }
 }
@@ -64,123 +78,283 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height:65vw;
+  min-height: 65vw;
   display: flex;
   align-items: center;
   position: relative;
 
-  @include tablet{
-    min-height: 80vh;
-    
+  @include tablet {
+    max-height: 50vh;
   }
 
-  
-  &__overlay{
+  &__overlay {
     z-index: 0;
     background: #323232;
     opacity: 0.5;
     position: absolute;
-    top:0; left:0; right:0; bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   &__header {
     z-index: 1;
     color: $white;
-    padding: 2rem;
-    @include mobile-header;
+    @include site-padding-mobile;
+    @include header-mobile;
     font-weight: 600;
-    @include tablet{
-      @include tablet-page-header;
-      font-weight:600;
+    @include tablet {
+      @include page-header-tablet;
+      @include site-padding-tablet;
+      font-weight: 600;
     }
   }
-
 }
 
 .about-us {
-  padding: $site-padding;
+  @include site-padding-mobile;
   display: flex;
   flex-direction: column;
-  &__header {
-    padding: 24px 0;
+
+  @include tablet {
+    @include site-padding-tablet;
   }
+
+  &__header {
+    @include headline-padding-mobile;
+    font-weight: 600;
+
+    @include tablet {
+      @include headline-padding-tablet;
+      @include section-header-tablet;
+      font-weight: 600;
+    }
+  }
+  // &__container{
+  //   overflow:hidden;
+  //   padding-top:-40px ;
+  // }
   &__image {
+    @include component-padding-mobile;
     margin: auto;
-    padding-bottom: 16px;
     max-width: 100%;
+
+    @include tablet {
+      margin: 0;
+      @include site-padding-tablet;
+      @include component-padding-tablet;
+    }
   }
   &__caption {
-    @include mobile-subheader;
+    @include subheader-mobile;
+    @include component-padding-mobile;
     color: $band-site-black;
+
+    @include tablet {
+      @include site-padding-tablet;
+      @include component-padding-tablet;
+      font-size: 1.2rem;
+    }
+    &--styling {
+      padding-bottom: 0.5rem;
+      @include tablet {
+        padding-bottom: 1rem;
+        @include subheader-tablet;
+      }
+    }
   }
   &__sub-header {
-    @include mobile-subheader;
+    @include subheader-mobile;
+    @include component-padding-mobile;
     color: $band-site-black;
+    
+    @include tablet {
+      padding: 24px 36px;
+      @include subheader-tablet;
+    }
+  }
+  &__container {
+    @include tablet {
+      @include site-padding-tablet;
+      display: flex;
+      justify-content: space-between;
+    }
   }
   &__text {
     color: $band-site-black;
-    @include mobile-copy;
-    padding-bottom: 16px;
+    @include copy-mobile;
+    @include component-padding-mobile;
+
+    @include tablet {
+      @include body-copy-tablet;
+      @include component-padding-tablet;
+      width: 45%;
+    }
   }
 }
 
 .photo-gallery {
-  padding: $site-padding;
+  @include site-padding-mobile;
   background-color: $alabaster;
-  display: flex;
-  flex-direction: column;
-  &__header {
-    padding: 24px 0 16px 0;
-  }
 
+  @include tablet {
+    @include site-padding-tablet;
+  }
+  &__header {
+    @include headline-padding-mobile;
+    font-weight: 600;
+    @include tablet {
+      @include headline-padding-tablet;
+      @include section-header-tablet;
+      font-weight: 600;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
   &__image {
-    padding-bottom: 16px;
+    @include component-padding-mobile;
+    @include tablet {
+      width: 31%;
+      padding-bottom: 1.5rem;
+    }
   }
 }
 
 .footer {
   background-color: $band-site-black;
   color: $white;
-  padding: $site-padding;
+  // position: relative;
+  @include site-padding-mobile;
+
+  @include tablet {
+    @include site-padding-tablet;
+    // width: 100%;
+    // display: flex;
+    // flex-direction: column;
+    // flex-wrap: wrap;
+  }
+
   &__header {
-    padding: 24px 0 16px 0;
-    @include mobile-header;
+    @include header-mobile;
+    @include component-padding-mobile;
+    padding-top: 24px;
     font-weight: 600;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+    @include tablet {
+      visibility: collapse;
+      @include section-header-tablet;
+      padding: 0 40% 0 0;
+      font-weight: 600;
+    }
   }
-  &__image-container {
-    width: 40%;
+  &__mobile-icon-container {
+    max-width: 40%;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 16px;
+    @include component-padding-mobile;
+    @include tablet {
+      display: none;
+    }
   }
-  &__image {
+
+  &__icon-container {
+    display: none;
+
+    @include tablet {
+      max-width: 60%;
+      padding-bottom: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__tablet-logo {
+    display: none;
+    @include tablet {
+      display: flex;
+      visibility: visible;
+      align-self: flex-end;
+      padding-bottom: 2.5rem;
+      max-width: 70%;
+    }
+  }
+  &__icon {
+    max-height: 2em;
+  }
+  &__card-container {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: flex-end;
+    }
   }
 
   &__card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    &__header {
-      @include mobile-subheader;
 
-    }
-    &__text {
-      @include mobile-copy
+    @include tablet {
+      width: 31%;
     }
   }
-  &__logo{
+  &__tablet-header {
+    display: none;
+    @include tablet {
+      @include section-header-tablet;
+      font-weight: 600;
+      padding-bottom: 2rem;
+      display: flex;
+    }
+  }
+  &__subheader {
+    @include footer-copy-tablet;
+    color: $white;
+
+    &--padding {
+      @include component-padding-mobile;
+    }
+  }
+  &__text {
+    @include footer-copy-tablet;
+    font-size: 14px;
+    color: $mercury;
+    &--address-padding {
+      padding-bottom: 1rem;
+    }
+    &--email-padding {
+      padding-bottom: 1.5rem;
+      @include tablet {
+        @include component-padding-tablet;
+      }
+    }
+  }
+  &__phone-logo {
     width: 40%;
-    padding: 24px 0 16px;
+    padding-top: 2.5rem;
+    padding-bottom: .8rem;
+    @include tablet {
+      display: none;
+    }
   }
-  &__copyright {
-    @include mobile-copy;
-    font-size:10px;
-    
-  }
-}
 
-.component-padding{
-  padding-bottom: $component-padding;
+  &__copyright {
+  
+    @include component-padding-mobile;
+    font-size: 11px;
+    color: $mercury;
+
+    @include tablet {
+      @include component-padding-tablet;
+      @include footer-copy-tablet;
+      font-weight: 400;
+    }
+  }
 }

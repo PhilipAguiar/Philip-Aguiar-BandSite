@@ -8,32 +8,35 @@
     <title>Band Site</title>
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <img class="heade__logo" src="./assets/logos/Logo-bandsite.svg" alt="BANDSITE logo" />
-      <ul class="header__list">
-        <li class="header__list__item header__list__item--active"><h3 class="header__list__item__text header__list__item__text--active">Biography</h3></li>
-        <li class="header__list__item"><h3 class="header__list__item__text">Shows</h3></li>
+    <!-- nav -->
+    <header class="nav">
+      <img class="nav__logo" src="./assets/logos/Logo-bandsite.svg" alt="BANDSITE logo" />
+      <ul class="nav__list">
+        <li class="nav__section nav__section--active"><h3 class="nav__text nav__text--active">Biography</h3></li>
+        <li class="nav__section"><h3 class="nav__text">Shows</h3></li>
       </ul>
     </header>
     <!-- Hero Image -->
     <section class="hero">
       <div class="hero__overlay"></div>
-      <h1 class="hero__header site-padding">The Bees Knees</h1>
+      <h1 class="hero__header">The Bees Knees</h1>
     </section>
 
     <!--  -->
     <main class="about-us">
       <h2 class="about-us__header">About the Musicians</h2>
+     
       <img class="about-us__image" src="./assets/images/band.jpg" alt="nightclub" />
-      <h3 class="about-us__caption component-padding">
+   
+      <h3 class="about-us__caption about-us__caption--styling">
         “We push each other to be the best. It’s not uncommon for one of us to
         say ‘this needs to be better, back to the drawing board’”
       </h3>
-      <h3 class="about-us__caption component-padding">- Bryan Teddy, lead vocalist of The Bees Knees</h3>
+      <h3 class="about-us__caption">- Bryan Teddy, lead vocalist of The Bees Knees</h3>
 
-      <h4 class="about-us__sub-header component-padding">The Bees Knees</h4>
+      <h4 class="about-us__sub-header">The Bees Knees</h4>
 
+      <div class="about-us__container">
       <p class="about-us__text">
         The Bees Knees is a pop rock band originating from San Francisco,
         California. The band consists of lead vocalist Bryan Teddy, guitarist
@@ -54,11 +57,12 @@
         forward to touring in the future, The Bees Knees are currently recording
         their second studio album, looking to be released in late 2021.
       </p>
+      </div>
     </main>
     <!-- Photo Gallery -->
     <section class="photo-gallery">
       <h2 class="photo-gallery__header">Photo Gallery</h2>
-
+      <div class="photo-gallery__container">
       <img class="photo-gallery__image" src="./assets/images/Photo-gallery-1.jpg" alt="photo" />
       <img class="photo-gallery__image" src="./assets/images/Photo-gallery-2.jpg" alt="photo" />
       <img class="photo-gallery__image" src="./assets/images/Photo-gallery-3.jpg" alt="photo" />
@@ -68,46 +72,58 @@
       <img class="photo-gallery__image" src="./assets/images/Photo-gallery-7.jpg" alt="photo" />
       <img class="photo-gallery__image" src="./assets/images/Photo-gallery-8.jpg" alt="photo" />
       <img class="photo-gallery__image" src="./assets/images/Photo-gallery-9.jpg" alt="photo" />
+    </div>
     </section>
     <!-- Footer -->
     <footer class="footer">
-      <h4 class="footer__header">Get in Touch</h4>
-      <div class="footer__image-container">
-        <img class="footer__image" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
-        <img class="footer__image" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
-        <img class="footer__image" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
-      </div>
+       <h4 class="footer__header">Get in Touch</h4>
+        <div class="footer__mobile-icon-container">
+         <img class="footer__icon" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
+          <img class="footer__icon" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
+         <img class="footer__icon" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
+        </div>
+        
+        
 
+      <div class="footer__card-container">
       <div class="footer__card">
-          
-        <h5 class="footer__card__header">Cam Adams</h5>
-        <h5 class="footer__card__header component-padding">The Bees Knees Management</h5>
+        <h4 class="footer__tablet-header">Get in Touch</h4>
+        <h5 class="footer__subheader ">Cam Adams</h5>
+        <h5 class="footer__subheader  footer__subheader--padding">The Bees Knees Management</h5>
 
-        <p class="footer__card__text">503 Broadway Penthouse,</p>
-        <p class="footer__card__text component-padding">New York, NY 10012</p>
+        <p class="footer__text">503 Broadway Penthouse,</p>
+        <p class="footer__text footer__text--address-padding">New York, NY 10012, USA</p>
 
-        <p class="footer__card__text component-padding">info@thebeesknees.com</p>
+        <p class="footer__text footer__text--email-padding">info@thebeesknees.com</p>
       </div>
       <div class="footer__card">
-        <h5 class="footer__card__header">Pearl Gregg</h5>
-        <h5 class="footer__card__header component-padding">Limitless Artist Group</h5>
+        <div class="footer__icon-container">
+          <img class="footer__icon" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
+           <img class="footer__icon" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
+          <img class="footer__icon" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
+         </div>
+        <h5 class="footer__subheader">Pearl Gregg</h5>
+        <h5 class="footer__subheader footer__subheader--padding">Limitless Artist Group</h5>
 
-        <p class="footer__card__text">Booking Agent for</p>
-        <p class="footer__card__text component-padding">US / South America / Japan</p>
+        <p class="footer__text">Booking Agent for</p>
+        <p class="footer__text footer__text--address-padding">US / South America / Japan</p>
 
-        <p class="footer__card__text component-padding">pearl.gregg@limitlessag.com</p>
+        <p class="footer__text footer__text--email-padding">pearl.gregg@limitlessag.com</p>
       </div>
       <di class="footer__card">
-        <h5 class="footer__card__header">Carson Whyte</h5>
-        <h5 class="footer__card__header component-padding">ARCH Entertainment</h5>
+        <img class="footer__tablet-logo" src="./assets/logos/Logo-bandsite.svg" alt="">
+        <h5 class="footer__subheader">Carson Whyte</h5>
+        <h5 class="footer__subheader footer__subheader--padding">ARCH Entertainment</h5>
 
-        <p class="footer__card__text">Booking Agent for</p>
-        <p class="footer__card__text component-padding">UK / EU / AU</p>
+        <p class="footer__text">Booking Agent for</p>
+        <p class="footer__text footer__text--address-padding">UK / EU / AU</p>
 
-        <p class="footer__card__text component-padding">cwhyte@archentertainment.com</p>
+        <p class="footer__text footer__text--email-padding">cwhyte@archentertainment.com</p>
+      
       </div>
-      <img class="footer__logo" src="./assets/logos/Logo-bandsite.svg" alt="">
-      <p class="footer__copyright component-padding">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+    </div>
+    <img class="footer__phone-logo" src="./assets/logos/Logo-bandsite.svg" alt="">
+      <p class="footer__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
     </footer>
   </body>
 </html>
