@@ -9,8 +9,6 @@
   padding: 0;
 }
 
-body {
-}
 .nav {
   padding-top: 1rem;
   background-color: $band-site-black;
@@ -19,6 +17,11 @@ body {
   @include tablet {
     @include site-padding-tablet;
     display: flex;
+    align-items: center;
+  }
+
+  @include desktop {
+    @include site-desktop-padding;
   }
 
   &__logo {
@@ -29,7 +32,9 @@ body {
     max-height: 20px;
 
     @include tablet {
-      padding: 24px 36px 0px 0;
+      width: 25%;
+      padding: 0;
+      padding-right: 3rem;
     }
   }
 
@@ -41,24 +46,34 @@ body {
     @include tablet {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       width: 30%;
+    }
+    @include desktop {
+      width: 20%;
     }
   }
   &__section {
     list-style-type: none;
     width: 50%;
     height: 100%;
+    padding-bottom: 8px;
 
     @include tablet {
       width: auto;
-      padding: 24px 0;
+      padding: 1.5rem 0;
     }
 
     &--active {
       color: $white;
       border-bottom: $white solid 4px;
-      padding-bottom: 3%;
+
       box-sizing: border-box;
+      @include desktop {
+        width: 35%;
+        padding: 2rem 0;
+        border-bottom: $white solid 2px;
+      }
     }
   }
   &__text {
@@ -66,7 +81,11 @@ body {
     @include subheader-mobile;
     margin: 0;
 
+    @include tablet {
+      font-size: 1rem;
+    }
     &--active {
+      font-size: 1rem;
       font-weight: 400;
       color: $white;
     }
@@ -78,13 +97,18 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 65vw;
+  min-height: 60vw;
   display: flex;
   align-items: center;
   position: relative;
 
   @include tablet {
-    max-height: 50vh;
+    min-height: 60vw;
+    background-position: bottom;
+  }
+  @include desktop {
+    min-height: 48vw;
+    background-position-y: -3.5rem;
   }
 
   &__overlay {
@@ -108,6 +132,9 @@ body {
       @include site-padding-tablet;
       font-weight: 600;
     }
+    @include desktop {
+      @include site-desktop-padding;
+    }
   }
 }
 
@@ -119,6 +146,9 @@ body {
   @include tablet {
     @include site-padding-tablet;
   }
+  @include desktop {
+    @include site-desktop-padding;
+  }
 
   &__header {
     @include headline-padding-mobile;
@@ -129,20 +159,32 @@ body {
       @include section-header-tablet;
       font-weight: 600;
     }
+    @include desktop {
+      font-weight: 600;
+    }
   }
-  // &__container{
-  //   overflow:hidden;
-  //   padding-top:-40px ;
-  // }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+  }
   &__image {
     @include component-padding-mobile;
-    margin: auto;
     max-width: 100%;
-
+    aspect-ratio: 1.8;
+    object-fit: cover;
     @include tablet {
+      max-width: 80vw;
       margin: 0;
       @include site-padding-tablet;
       @include component-padding-tablet;
+    }
+    @include desktop {
+      aspect-ratio: 1.9;
+      max-width: 65vw;
+      margin: auto;
+      text-align: center;
     }
   }
   &__caption {
@@ -153,13 +195,22 @@ body {
     @include tablet {
       @include site-padding-tablet;
       @include component-padding-tablet;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
+    @include desktop {
+      width: 79%;
+
+      padding-left: 0;
+    }
+
     &--styling {
       padding-bottom: 0.5rem;
       @include tablet {
         padding-bottom: 1rem;
         @include subheader-tablet;
+      }
+      @include desktop {
+        font-size: 22px;
       }
     }
   }
@@ -167,17 +218,28 @@ body {
     @include subheader-mobile;
     @include component-padding-mobile;
     color: $band-site-black;
-    
+
     @include tablet {
       padding: 24px 36px;
       @include subheader-tablet;
     }
+    @include desktop {
+      padding-left: 0;
+    }
+  }
+  &__text-container {
+    margin: auto;
+    width: 65vw;
   }
   &__container {
     @include tablet {
       @include site-padding-tablet;
       display: flex;
       justify-content: space-between;
+    }
+    @include desktop {
+      margin: auto;
+      width: 65vw;
     }
   }
   &__text {
@@ -190,6 +252,9 @@ body {
       @include component-padding-tablet;
       width: 45%;
     }
+    @include desktop {
+      width: 49%;
+    }
   }
 }
 
@@ -199,6 +264,10 @@ body {
 
   @include tablet {
     @include site-padding-tablet;
+  }
+  @include desktop {
+    @include site-desktop-padding;
+    padding-bottom: 1rem;
   }
   &__header {
     @include headline-padding-mobile;
@@ -224,21 +293,23 @@ body {
       width: 31%;
       padding-bottom: 1.5rem;
     }
+    @include desktop {
+      width: 32%;
+    }
   }
 }
 
 .footer {
   background-color: $band-site-black;
   color: $white;
-  // position: relative;
+
   @include site-padding-mobile;
 
   @include tablet {
     @include site-padding-tablet;
-    // width: 100%;
-    // display: flex;
-    // flex-direction: column;
-    // flex-wrap: wrap;
+  }
+  @include desktop {
+    @include site-desktop-padding;
   }
 
   &__header {
@@ -273,6 +344,9 @@ body {
       display: flex;
       justify-content: space-between;
     }
+    @include desktop{
+      max-width: 40%;
+    }
   }
   &__tablet-logo {
     display: none;
@@ -303,6 +377,12 @@ body {
 
     @include tablet {
       width: 31%;
+    }
+
+    &--desktop-padding {
+      @include desktop {
+        width: 50%;
+      }
     }
   }
   &__tablet-header {
@@ -339,14 +419,13 @@ body {
   &__phone-logo {
     width: 40%;
     padding-top: 2.5rem;
-    padding-bottom: .8rem;
+    padding-bottom: 0.8rem;
     @include tablet {
       display: none;
     }
   }
 
   &__copyright {
-  
     @include component-padding-mobile;
     font-size: 11px;
     color: $mercury;

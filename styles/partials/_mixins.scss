@@ -82,7 +82,7 @@
   }
 
   @mixin site-padding-tablet {
-    padding:0 36px;
+    padding:0 2.5rem;
       
   }
 
@@ -94,4 +94,8 @@
   @mixin component-padding-tablet {
     padding-bottom:36px;
       
+  }
+
+  @mixin site-desktop-padding {
+    padding: 0 8rem;    
   }
