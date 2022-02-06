@@ -10,14 +10,24 @@
   <body>
     <!-- nav -->
     <header class="nav">
-      <img class="nav__logo" src="./assets/logos/Logo-bandsite.svg" alt="BANDSITE logo" />
+      <a class="nav__home-link" href="/">
+        <img class="nav__logo" src="./assets/logos/Logo-bandsite.svg" alt="BANDSITE logo" />
+      </a>
       <ul class="nav__list">
-        <li class="nav__section nav__section--active">
-          <h3 class="nav__text nav__text--active">Biography</h3>
-        </li>
+        
+          <li class="nav__section nav__section--active">
+          <a class="nav__link" href="/">
+            <h3 class="nav__text nav__text--active">Biography</h3>
+          </a>
+          </li>
+        
+        
         <li class="nav__section">
+          <a class="nav__link" href="/">
           <h3 class="nav__text">Shows</h3>
+        </a>
         </li>
+        
       </ul>
     </header>
     <!-- Hero Image -->
@@ -85,9 +95,15 @@
     <footer class="footer">
        <h4 class="footer__header">Get in Touch</h4>
         <div class="footer__mobile-icon-container">
-         <img class="footer__icon" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
-          <img class="footer__icon" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
-         <img class="footer__icon" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
+          <a href="https://www.instagram.com/">
+            <img class="footer__icon" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
+          </a>
+          <a href="https://www.facebook.com/"">
+            <img class="footer__icon" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
+          </a>
+          <a href="https://www.twitter.com/">
+            <img class="footer__icon" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
+          </a>
         </div>
         
         
@@ -100,22 +116,28 @@
 
         <p class="footer__text">503 Broadway Penthouse,</p>
         <p class="footer__text footer__text--address-padding">New York, NY 10012, USA</p>
-
-        <p class="footer__text footer__text--email-padding">info@thebeesknees.com</p>
+        
+        <a href="mailto:info@thebeesknees.com" class="footer__text footer__text--email-styling">info@thebeesknees.com</a>
       </div>
       <div class="footer__card">
         <div class="footer__icon-container">
-          <img class="footer__icon" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
-           <img class="footer__icon" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
-          <img class="footer__icon" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
-         </div>
+          <a href="https://www.instagram.com/">
+            <img class="footer__icon" src="./assets/icons/Icon-instagram.svg" alt="instagram" />
+          </a>
+          <a href="https://www.facebook.com/"">
+            <img class="footer__icon" src="./assets/icons/Icon-facebook.svg" alt="facebook" />
+          </a>
+          <a href="https://www.twitter.com/">
+            <img class="footer__icon" src="./assets/icons/Icon-twitter.svg" alt="twitter" />
+          </a>
+          </div>
         <h5 class="footer__subheader">Pearl Gregg</h5>
         <h5 class="footer__subheader footer__subheader--padding">Limitless Artist Group</h5>
 
         <p class="footer__text">Booking Agent for</p>
         <p class="footer__text footer__text--address-padding">US / South America / Japan</p>
 
-        <p class="footer__text footer__text--email-padding">pearl.gregg@limitlessag.com</p>
+        <a href="mailto:pearl.gregg@limitlessag.com" class="footer__text footer__text--email-styling">pearl.gregg@limitlessag.com</a>
       </div>
       <div class="footer__card footer__card--desktop-padding">
         <img class="footer__tablet-logo" src="./assets/logos/Logo-bandsite.svg" alt="">
@@ -125,7 +147,7 @@
         <p class="footer__text">Booking Agent for</p>
         <p class="footer__text footer__text--address-padding">UK / EU / AU</p>
 
-        <p class="footer__text footer__text--email-padding">cwhyte@archentertainment.com</p>
+        <a href="mailto:cwhyte@archentertainment.com" class="footer__text footer__text--email-styling">cwhyte@archentertainment.com</a>
       
       </div>
     </div>

@@ -1,5 +1,6 @@
 @use "variables" as *;
 
+
 @mixin tablet {
     @media (min-width: $tablet-breakpoint) {
         @content;
@@ -13,8 +14,8 @@
 };
 
 @mixin header-mobile {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 700;
   }
   
@@ -37,32 +38,32 @@
     font-weight: 700;
   }
   @mixin site-padding-mobile {
-    padding:0 16px;
+    padding:0 1rem;
       
   }
   
   @mixin component-padding-mobile{
-    padding-bottom: 16px;
+    padding-bottom: 1rem;
   }
   
   @mixin headline-padding-mobile{
-    padding: 24px 0 16px;
+    padding: 1.5rem 0 1rem;
   }
   
   @mixin page-header-tablet {
-    font-size: 60px;
-    line-height: 68px;
+    font-size: 3.75rem;
+    line-height: 4.25rem;
     font-weight: 700;
   }
   
   @mixin section-header-tablet {
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 44px;
     font-weight: 700;
   }
   @mixin subheader-tablet {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 600;
   }
   @mixin body-copy-tablet {
@@ -87,12 +88,12 @@
   }
 
   @mixin headline-padding-tablet {
-    padding: 48px 0 36px 0
+    padding: 3rem 0 2rem 0
       
   }
 
   @mixin component-padding-tablet {
-    padding-bottom:36px;
+    padding-bottom:2.25rem;
       
   }
 
