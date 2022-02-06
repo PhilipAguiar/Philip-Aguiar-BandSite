@@ -1,5 +1,6 @@
 @use "variables" as *;
 
+// screen size mixins
 
 @mixin tablet {
     @media (min-width: $tablet-breakpoint) {
@@ -12,6 +13,8 @@
         @content;
     }
 };
+
+// mobile properties
 
 @mixin header-mobile {
     font-size: 1.5rem;
@@ -50,6 +53,8 @@
     padding: 1.5rem 0 1rem;
   }
   
+// tablet+ properties
+
   @mixin page-header-tablet {
     font-size: 3.75rem;
     line-height: 4.25rem;
@@ -97,6 +102,8 @@
       
   }
 
-  @mixin site-desktop-padding {
+// Desktop properties
+
+  @mixin site-padding-desktop {
     padding: 0 8rem;    
   }

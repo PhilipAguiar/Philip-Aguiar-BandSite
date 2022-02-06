@@ -1,19 +1,22 @@
 @font-face {
   font-family: "Avenir";
-  src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf);
+  src: url(../assets/fonts/AvenirNextLTPro.ttf);
+  src: url(../assets/fonts/AvenirNextLTPro-Regular.otf);
 }
 @font-face {
   font-family: "Avenir";
-  src: url(../../assets/fonts/AvenirNextLTProDemi.ttf);
+  src: url(../assets/fonts/AvenirNextLTProDemi.ttf);
+  src: url(../assets/fonts/AvenirNextLTPro-Demi.otf);
   font-weight: 600;
 }
 @font-face {
   font-family: "Avenir";
-  src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf);
+  src: url(../assets/fonts/AvenirNextLTProBold.ttf);
+  src: url(../assets/fonts/AvenirNextLTPro-Bold.otf);
   font-weight: 700;
 }
 * {
-  font-family: "Avenir";
+  font-family: "Avenir", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -44,13 +47,19 @@
   padding: 0 1rem;
   padding-bottom: 0.5rem;
   width: 30%;
-  min-width: 7.5rem;
+  min-width: 10rem;
   min-height: 1.25rem;
 }
 @media (min-width: 768px) {
   .nav__logo {
     width: 25%;
     padding: 0;
+    margin-bottom: -4px;
+  }
+}
+@media (min-width: 768px) {
+  .nav__logo {
+    margin-bottom: -2px;
   }
 }
 .nav__list {
@@ -88,7 +97,7 @@
 @media (min-width: 768px) {
   .nav__section {
     width: auto;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
   }
 }
 @media (min-width: 1280px) {
@@ -114,22 +123,22 @@
   }
 }
 .nav__text {
-  color: #AFAFAF;
-  padding-bottom: 0.2rem;
   font-size: 14px;
   line-height: 22px;
   font-weight: 600;
+  color: #AFAFAF;
+  padding-bottom: 0.2rem;
   margin: 0;
   padding: 0;
 }
 @media (min-width: 768px) {
   .nav__text {
     font-size: 1rem;
+    font-weight: 400;
   }
 }
 .nav__text--active {
   font-size: 1rem;
-  font-weight: 400;
   color: #FFFFFF;
 }
 
@@ -155,6 +164,11 @@
     background-position-y: -3.5rem;
   }
 }
+@media (min-width: 1700px) {
+  .hero {
+    min-height: 850px;
+  }
+}
 .hero__overlay {
   z-index: 0;
   background: #323232;
@@ -166,12 +180,12 @@
   bottom: 0;
 }
 .hero__header {
-  z-index: 1;
-  color: #FFFFFF;
   padding: 0 1rem;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
+  z-index: 1;
+  color: #FFFFFF;
   font-weight: 600;
 }
 @media (min-width: 550px) {
@@ -232,7 +246,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 90%;
+    width: 95%;
   }
 }
 .about-us__image {
@@ -244,10 +258,9 @@
 }
 @media (min-width: 768px) {
   .about-us__image {
-    max-width: 80vw;
-    margin: 0;
     padding: 0 2.5rem;
     padding-bottom: 2.25rem;
+    margin: 0;
   }
 }
 @media (min-width: 1280px) {
@@ -256,6 +269,11 @@
     max-width: 65vw;
     margin: auto;
     text-align: center;
+  }
+}
+@media (min-width: 1700px) {
+  .about-us__image {
+    width: 100%;
   }
 }
 .about-us__caption {
@@ -283,10 +301,10 @@
 }
 @media (min-width: 768px) {
   .about-us__caption--styling {
-    padding-bottom: 1rem;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
+    padding-bottom: 1rem;
   }
 }
 @media (min-width: 1280px) {
@@ -303,10 +321,10 @@
 }
 @media (min-width: 768px) {
   .about-us__sub-header {
-    padding: 1.5rem 2.25rem;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
+    padding: 1.5rem 2.25rem;
   }
 }
 @media (min-width: 1280px) {
@@ -352,6 +370,12 @@
 @media (min-width: 1280px) {
   .about-us__text {
     width: 49%;
+  }
+}
+@media (min-width: 1500px) {
+  .about-us__text {
+    font-size: 1em;
+    line-height: 1.6em;
   }
 }
 
@@ -400,9 +424,9 @@
 }
 @media (min-width: 768px) {
   .photo-gallery__image {
+    filter: grayscale(100%);
     width: 31%;
     padding-bottom: 1.5rem;
-    filter: grayscale(100%);
   }
 }
 @media (min-width: 1280px) {
@@ -469,11 +493,6 @@
     justify-content: space-between;
   }
 }
-@media (min-width: 1280px) {
-  .footer__icon-container {
-    max-width: 40%;
-  }
-}
 .footer__tablet-logo {
   display: none;
 }
@@ -515,7 +534,7 @@
 }
 @media (min-width: 1280px) {
   .footer__card--desktop-padding {
-    width: 50%;
+    width: 60%;
   }
 }
 @media (min-width: 1600px) {
@@ -550,6 +569,11 @@
 .footer__subheader--padding {
   padding-bottom: 1rem;
 }
+@media (min-width: 768px) {
+  .footer__subheader--padding {
+    padding-bottom: 1.5rem;
+  }
+}
 .footer__text {
   font-size: 14px;
   line-height: 20px;
@@ -560,13 +584,18 @@
 .footer__text--address-padding {
   padding-bottom: 1rem;
 }
+@media (min-width: 768px) {
+  .footer__text--address-padding {
+    padding-bottom: 1.5rem;
+  }
+}
 .footer__text--email-styling {
-  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
   text-decoration: none;
 }
 @media (min-width: 768px) {
   .footer__text--email-styling {
-    padding-bottom: 2.25rem;
+    margin-bottom: 2.5rem;
   }
 }
 .footer__text--email-styling:hover {

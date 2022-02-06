@@ -4,20 +4,16 @@
 @use "partials/variables" as *;
 
 * {
-  font-family: "Avenir";
+  font-family: $font-stack;
   margin: 0;
   padding: 0;
 }
 
-%site-padding-tablet {
-  padding:0 2.5rem;
-    
-}
-
+// Nav-Bar
 
 .nav {
   padding-top: 1rem;
-  background-color: $band-site-black;
+  background-color: $primary-dark;
   text-align: center;
 
   @include tablet {
@@ -25,13 +21,11 @@
     display: flex;
     align-items: center;
   }
-  
-
   @include desktop {
-    @include site-desktop-padding;
+    @include site-padding-desktop ;
   }
 
-  &__home-link{
+  &__home-link {
     @include tablet {
       margin-right: 3rem;
     }
@@ -41,15 +35,16 @@
     @include site-padding-mobile;
     padding-bottom: 0.5rem;
     width: 30%;
-    min-width: 7.5rem;
+    min-width: 10rem;
     min-height: 1.25rem;
-    
-    
 
     @include tablet {
       width: 25%;
       padding: 0;
-      
+      margin-bottom: -4px;
+    }
+    @include tablet {
+      margin-bottom: -2px;
     }
   }
 
@@ -57,6 +52,7 @@
     display: flex;
     padding: 0;
     width: auto;
+
     @include tablet {
       display: flex;
       justify-content: space-around;
@@ -68,66 +64,68 @@
     }
   }
 
-  &__link{
+  &__link {
     text-decoration: none;
   }
+
   &__section {
     list-style-type: none;
     width: 50%;
     height: 100%;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     border-bottom: transparent solid 4px;
 
-
-    &:hover{
-      color: $white;
-      border-bottom: $white solid 4px;
+    &:hover {
+      color: $primary-light;
+      border-bottom: $primary-light solid 4px;
     }
 
     @include tablet {
       width: auto;
-      padding: 1.5rem 0;
-      
+      padding: 2rem 0;
     }
-    @include desktop{
+    @include desktop {
       padding: 2rem 0;
       border-bottom: transparent solid 2px;
-      &:hover{
-        color: $white;
-        border-bottom: $white solid 2px;
+      &:hover {
+        color: $primary-light;
+        border-bottom: $primary-light solid 2px;
       }
     }
-    
 
     &--active {
-      color: $white;
-      border-bottom: $white solid 4px;
-
+      color: $primary-light;
+      border-bottom: $primary-light solid 4px;
       box-sizing: border-box;
+
       @include desktop {
         width: auto;
         padding: 2rem 0;
-        border-bottom: $white solid 2px;
-        
+        border-bottom: $primary-light solid 2px;
       }
     }
   }
+
   &__text {
-    color: $silver;
-    padding-bottom: .2rem;
     @include subheader-mobile;
+    color: $primary-neutral;
+    padding-bottom: 0.2rem;
     margin: 0;
     padding: 0;
+
     @include tablet {
       font-size: 1rem;
+      font-weight: 400;
     }
+
     &--active {
       font-size: 1rem;
-      font-weight: 400;
-      color: $white;
+      color: $primary-light;
     }
   }
 }
+
+// Hero Section
 
 .hero {
   background-image: url(../assets/images/hero-bio.jpg);
@@ -148,7 +146,9 @@
     background-position-y: -3.5rem;
   }
 
- 
+  @media (min-width: 1700px) {
+    min-height: 850px;
+  }
 
   &__overlay {
     z-index: 0;
@@ -160,29 +160,29 @@
     right: 0;
     bottom: 0;
   }
+
   &__header {
-    z-index: 1;
-    color: $white;
     @include site-padding-mobile;
     @include header-mobile;
+    z-index: 1;
+    color: $primary-light;
     font-weight: 600;
 
     @media (min-width: 550px) {
       font-size: 2.5em;
     }
-    
     @include tablet {
       @include page-header-tablet;
       @include site-padding-tablet;
       font-weight: 600;
     }
-    
-
     @include desktop {
-      @include site-desktop-padding;
+      @include site-padding-desktop ;
     }
   }
 }
+
+// About Us
 
 .about-us {
   @include site-padding-mobile;
@@ -193,7 +193,7 @@
     @include site-padding-tablet;
   }
   @include desktop {
-    @include site-desktop-padding;
+    @include site-padding-desktop ;
   }
 
   &__header {
@@ -209,24 +209,27 @@
       font-weight: 600;
     }
   }
+
   &__wrapper {
-    @include tablet{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 90%;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      width: 95%;
     }
+    
   }
+
   &__image {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
     max-width: 100%;
     aspect-ratio: 1.8;
     object-fit: cover;
+
     @include tablet {
-      max-width: 80vw;
-      margin: 0;
       @include site-padding-tablet;
       @include component-padding-tablet;
+      margin: 0;
     }
     @include desktop {
       aspect-ratio: 1.9;
@@ -234,11 +237,16 @@
       margin: auto;
       text-align: center;
     }
+    @media (min-width: 1700px) {
+      width: 100%;
+    }
+   
   }
+
   &__caption {
     @include subheader-mobile;
     @include component-padding-mobile;
-    color: $band-site-black;
+    color: $primary-dark;
 
     @include tablet {
       @include site-padding-tablet;
@@ -252,35 +260,39 @@
 
     &--styling {
       padding-bottom: 0.5rem;
+
       @include tablet {
-        padding-bottom: 1rem;
         @include subheader-tablet;
+        padding-bottom: 1rem;
       }
       @include desktop {
         font-size: 22px;
       }
     }
+
   }
+
   &__sub-header {
     @include subheader-mobile;
     @include component-padding-mobile;
-    color: $band-site-black;
+    color: $primary-dark;
 
     @include tablet {
-      padding: 1.5rem 2.25rem;
       @include subheader-tablet;
-      
+      padding: 1.5rem 2.25rem;
     }
     @include desktop {
       padding-left: 0;
     }
   }
+
   &__text-container {
-    @include desktop{
-    margin: auto;
-    width: 65vw;
+    @include desktop {
+      margin: auto;
+      width: 65vw;
+    }
   }
-}
+
   &__container {
     @include tablet {
       @include site-padding-tablet;
@@ -292,8 +304,9 @@
       width: 65vw;
     }
   }
+  
   &__text {
-    color: $band-site-black;
+    color: $primary-dark;
     @include copy-mobile;
     @include component-padding-mobile;
 
@@ -305,31 +318,39 @@
     @include desktop {
       width: 49%;
     }
+    @media (min-width: 1500px) {
+      font-size: 1em;
+      line-height: 1.6em;
+    }
   }
 }
 
+//  Photo Gallery
+
 .photo-gallery {
   @include site-padding-mobile;
-  background-color: $alabaster;
-  
+  background-color: $secondary-light;
 
   @include tablet {
     @include site-padding-tablet;
     padding-bottom: 1rem;
   }
   @include desktop {
-    @include site-desktop-padding;
+    @include site-padding-desktop ;
     padding-bottom: 1rem;
   }
+
   &__header {
     @include headline-padding-mobile;
     font-weight: 600;
+
     @include tablet {
       @include headline-padding-tablet;
       @include section-header-tablet;
       font-weight: 600;
     }
   }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -339,33 +360,35 @@
       justify-content: space-between;
     }
   }
+
   &__image {
     @include component-padding-mobile;
+    
     @include tablet {
+      filter: grayscale(100%);
       width: 31%;
       padding-bottom: 1.5rem;
-      filter: grayscale(100%);
     }
     @include desktop {
       width: 32%;
+    }&:hover {
+     filter: grayscale(0%);
     }
-    &:hover{
-      filter: grayscale(0%);
-    }
+    
   }
 }
 
 .footer {
-  background-color: $band-site-black;
-  color: $white;
-  
+  background-color: $primary-dark;
+  color: $primary-light;
+
   @include site-padding-mobile;
 
   @include tablet {
     @include site-padding-tablet;
   }
   @include desktop {
-    @include site-desktop-padding;
+    @include site-padding-desktop ;
   }
 
   &__header {
@@ -381,12 +404,12 @@
       font-weight: 600;
     }
   }
+
   &__mobile-icon-container {
     max-width: 8rem;
     display: flex;
     justify-content: space-between;
     padding-bottom: 1.2rem;
-
 
     @include tablet {
       display: none;
@@ -402,14 +425,12 @@
       display: flex;
       justify-content: space-between;
     }
-    @include desktop{
-      max-width: 40%;
-    }
-
     
   }
+
   &__tablet-logo {
     display: none;
+
     @include tablet {
       display: flex;
       visibility: visible;
@@ -418,16 +439,18 @@
       max-width: 70%;
     }
   }
+
   &__icon {
     max-height: 2em;
-    
-    &:hover{
-      color: $white;
-      padding-bottom:2px;
+
+    &:hover {
+      color: $primary-light;
+      padding-bottom: 2px;
       margin-bottom: -4px;
-      border-bottom: $white solid 2px;
+      border-bottom: $primary-light solid 2px;
     }
   }
+
   &__card-container {
     @include tablet {
       display: flex;
@@ -435,9 +458,6 @@
       width: 100%;
       align-items: flex-end;
     }
-    
-    
-
   }
 
   &__card {
@@ -449,22 +469,22 @@
       width: 31%;
     }
 
-    
-
     &--desktop-padding {
       @include desktop {
-        width: 50%;
+        width: 60%;
       }
-      @media (min-width:1600px) {
+      @media (min-width: 1600px) {
         width: 70%;
       }
-      @media (min-width:1800px) {
+      @media (min-width: 1800px) {
         width: 90%;
       }
     }
   }
+
   &__tablet-header {
     display: none;
+    
     @include tablet {
       @include section-header-tablet;
       font-weight: 600;
@@ -472,38 +492,52 @@
       display: flex;
     }
   }
+
   &__subheader {
     @include footer-copy-tablet;
-    color: $white;
+    color: $primary-light;
 
     &--padding {
       @include component-padding-mobile;
+
+      @include tablet {
+        padding-bottom: 1.5rem;
+      }
     }
   }
+
   &__text {
     @include footer-copy-tablet;
     font-size: 14px;
-    color: $mercury;
+    color: $secondary-neutral;
+
     &--address-padding {
       padding-bottom: 1rem;
-    }
-    &--email-styling {
-      padding-bottom: 1.5rem;
-      text-decoration: none;
+      
       @include tablet {
-        @include component-padding-tablet;
+        padding-bottom: 1.5rem;  
+      }
+    }
+
+    &--email-styling {
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+     
+      @include tablet {
+        margin-bottom: 2.5rem;
       }
 
-      &:hover{
-        color: $white;
+      &:hover {
+        color: $primary-light;
         text-decoration: underline;
       }
     }
-    }
+  }
   &__phone-logo {
     width: 40%;
     padding-top: 2.5rem;
     padding-bottom: 0.8rem;
+    
     @include tablet {
       display: none;
     }
@@ -512,7 +546,7 @@
   &__copyright {
     @include component-padding-mobile;
     font-size: 11px;
-    color: $mercury;
+    color: $secondary-neutral;
 
     @include tablet {
       @include component-padding-tablet;
