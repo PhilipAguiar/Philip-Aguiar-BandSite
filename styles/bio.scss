@@ -9,6 +9,19 @@
   padding: 0;
 }
 
+// Classes to be inherited
+
+%logo-size{
+  min-height: 20px;
+  min-width: 120px;
+}
+
+%icon-container{
+  max-width: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 // Nav-Bar
 
 .nav {
@@ -32,11 +45,11 @@
   }
 
   &__logo {
+    @extend %logo-size;
     @include site-padding-mobile;
     padding-bottom: 0.5rem;
     width: 30%;
-    min-width: 10rem;
-    min-height: 1.25rem;
+    
 
     @include tablet {
       width: 25%;
@@ -82,7 +95,7 @@
 
     @include tablet {
       width: auto;
-      padding: 2rem 0;
+      padding: 1.5rem 0;
     }
     @include desktop {
       padding: 2rem 0;
@@ -286,14 +299,14 @@
     }
   }
 
-  &__text-container {
+  &__caption-container {
     @include desktop {
       margin: auto;
       width: 65vw;
     }
   }
 
-  &__container {
+  &__text-container {
     @include tablet {
       @include site-padding-tablet;
       display: flex;
@@ -378,11 +391,12 @@
   }
 }
 
+// Footer
+
 .footer {
+  @include site-padding-mobile;
   background-color: $primary-dark;
   color: $primary-light;
-
-  @include site-padding-mobile;
 
   @include tablet {
     @include site-padding-tablet;
@@ -398,17 +412,15 @@
     font-weight: 600;
 
     @include tablet {
-      visibility: collapse;
       @include section-header-tablet;
+      visibility: collapse;
       padding: 0 40% 0 0;
       font-weight: 600;
     }
   }
 
   &__mobile-icon-container {
-    max-width: 8rem;
-    display: flex;
-    justify-content: space-between;
+    @extend %icon-container;
     padding-bottom: 1.2rem;
 
     @include tablet {
@@ -417,18 +429,18 @@
   }
 
   &__icon-container {
+    @extend %icon-container;
     display: none;
 
     @include tablet {
-      max-width: 8rem;
-      padding-bottom: 2.5rem;
       display: flex;
-      justify-content: space-between;
+      padding-bottom: 2.5rem;
     }
     
   }
 
   &__tablet-logo {
+    @extend %logo-size;
     display: none;
 
     @include tablet {
@@ -436,7 +448,6 @@
       visibility: visible;
       align-self: flex-end;
       padding-bottom: 2.5rem;
-      max-width: 70%;
     }
   }
 
@@ -534,7 +545,7 @@
     }
   }
   &__phone-logo {
-    width: 40%;
+    @extend %logo-size;
     padding-top: 2.5rem;
     padding-bottom: 0.8rem;
     

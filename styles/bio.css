@@ -1,24 +1,35 @@
 @font-face {
   font-family: "Avenir";
-  src: url(../assets/fonts/AvenirNextLTPro.ttf);
-  src: url(../assets/fonts/AvenirNextLTPro-Regular.otf);
+  src: url(/assets/fonts/AvenirNextLTPro.ttf);
+  src: url(/assets/fonts/AvenirNextLTPro-Regular.otf);
 }
 @font-face {
   font-family: "Avenir";
-  src: url(../assets/fonts/AvenirNextLTProDemi.ttf);
-  src: url(../assets/fonts/AvenirNextLTPro-Demi.otf);
+  src: url(/assets/fonts/AvenirNextLTProDemi.ttf);
+  src: url(/assets/fonts/AvenirNextLTPro-Demi.otf);
   font-weight: 600;
 }
 @font-face {
   font-family: "Avenir";
-  src: url(../assets/fonts/AvenirNextLTProBold.ttf);
-  src: url(../assets/fonts/AvenirNextLTPro-Bold.otf);
+  src: url(/assets/fonts/AvenirNextLTProBold.ttf);
+  src: url(/assets/fonts/AvenirNextLTPro-Bold.otf);
   font-weight: 700;
 }
 * {
   font-family: "Avenir", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.footer__phone-logo, .footer__tablet-logo, .nav__logo {
+  min-height: 20px;
+  min-width: 120px;
+}
+
+.footer__icon-container, .footer__mobile-icon-container {
+  max-width: 8rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav {
@@ -47,8 +58,6 @@
   padding: 0 1rem;
   padding-bottom: 0.5rem;
   width: 30%;
-  min-width: 10rem;
-  min-height: 1.25rem;
 }
 @media (min-width: 768px) {
   .nav__logo {
@@ -97,7 +106,7 @@
 @media (min-width: 768px) {
   .nav__section {
     width: auto;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
 }
 @media (min-width: 1280px) {
@@ -333,20 +342,20 @@
   }
 }
 @media (min-width: 1280px) {
-  .about-us__text-container {
+  .about-us__caption-container {
     margin: auto;
     width: 65vw;
   }
 }
 @media (min-width: 768px) {
-  .about-us__container {
+  .about-us__text-container {
     padding: 0 2.5rem;
     display: flex;
     justify-content: space-between;
   }
 }
 @media (min-width: 1280px) {
-  .about-us__container {
+  .about-us__text-container {
     margin: auto;
     width: 65vw;
   }
@@ -439,9 +448,9 @@
 }
 
 .footer {
+  padding: 0 1rem;
   background-color: #323232;
   color: #FFFFFF;
-  padding: 0 1rem;
 }
 @media (min-width: 768px) {
   .footer {
@@ -463,18 +472,15 @@
 }
 @media (min-width: 768px) {
   .footer__header {
-    visibility: collapse;
     font-size: 2.25rem;
     line-height: 44px;
     font-weight: 700;
+    visibility: collapse;
     padding: 0 40% 0 0;
     font-weight: 600;
   }
 }
 .footer__mobile-icon-container {
-  max-width: 8rem;
-  display: flex;
-  justify-content: space-between;
   padding-bottom: 1.2rem;
 }
 @media (min-width: 768px) {
@@ -487,10 +493,8 @@
 }
 @media (min-width: 768px) {
   .footer__icon-container {
-    max-width: 8rem;
-    padding-bottom: 2.5rem;
     display: flex;
-    justify-content: space-between;
+    padding-bottom: 2.5rem;
   }
 }
 .footer__tablet-logo {
@@ -502,7 +506,6 @@
     visibility: visible;
     align-self: flex-end;
     padding-bottom: 2.5rem;
-    max-width: 70%;
   }
 }
 .footer__icon {
@@ -603,7 +606,6 @@
   text-decoration: underline;
 }
 .footer__phone-logo {
-  width: 40%;
   padding-top: 2.5rem;
   padding-bottom: 0.8rem;
 }
