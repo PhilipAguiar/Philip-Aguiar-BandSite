@@ -1,2 +1,4 @@
   #Ignore scss map files
     *.css.map
+    *.vscode
+    *.DS_Store
