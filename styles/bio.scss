@@ -99,10 +99,10 @@
     }
     @include desktop {
       padding: 2rem 0;
-      border-bottom: transparent solid 2px;
+      border-bottom: transparent solid 3px;
       &:hover {
         color: $primary-light;
-        border-bottom: $primary-light solid 2px;
+        border-bottom: $primary-light solid 3px;
       }
     }
 
@@ -114,7 +114,7 @@
       @include desktop {
         width: auto;
         padding: 2rem 0;
-        border-bottom: $primary-light solid 2px;
+        border-bottom: $primary-light solid 3px;
       }
     }
   }

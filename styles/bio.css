@@ -112,11 +112,11 @@
 @media (min-width: 1280px) {
   .nav__section {
     padding: 2rem 0;
-    border-bottom: transparent solid 2px;
+    border-bottom: transparent solid 3px;
   }
   .nav__section:hover {
     color: #FFFFFF;
-    border-bottom: #FFFFFF solid 2px;
+    border-bottom: #FFFFFF solid 3px;
   }
 }
 .nav__section--active {
@@ -128,7 +128,7 @@
   .nav__section--active {
     width: auto;
     padding: 2rem 0;
-    border-bottom: #FFFFFF solid 2px;
+    border-bottom: #FFFFFF solid 3px;
   }
 }
 .nav__text {
