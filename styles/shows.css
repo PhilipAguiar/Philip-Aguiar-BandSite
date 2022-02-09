@@ -339,12 +339,17 @@
   background-image: url(/assets/images/hero-shows.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
   height: 90vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
   position: relative;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 70vw;
+    background-position-y: -6rem;
+  }
 }
 .hero__overlay {
   z-index: 0;
@@ -380,9 +385,64 @@
   font-weight: 600;
   color: #FFFFFF;
 }
+@media (min-width: 768px) {
+  .hero__header {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    font-weight: 700;
+    font-weight: 600;
+  }
+}
 .hero__player {
   margin: 1rem 0 2rem;
   z-index: 1;
   height: 6rem;
   border: none;
+}
+@media (min-width: 768px) {
+  .hero__player {
+    padding-bottom: 2.25rem;
+    width: 70%;
+    min-height: 25%;
+  }
+}
+
+.shows {
+  padding-bottom: 1rem;
+}
+.shows__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
+  font-weight: 600;
+  padding-top: 2rem;
+}
+.shows__card {
+  padding: 0 1rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid #E1E1E1;
+}
+.shows__header {
+  font-weight: 600;
+  color: #AFAFAF;
+  padding-bottom: 0.5rem;
+}
+.shows__text {
+  padding-bottom: 1rem;
+}
+.shows__text--date {
+  font-weight: 600;
+}
+.shows__button {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #323232;
+  color: #FFFFFF;
+  padding: 0.8rem 0;
+  border-radius: 5px;
+  border: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=shows.css.map */
