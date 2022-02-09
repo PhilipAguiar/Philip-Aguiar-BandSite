@@ -5,8 +5,8 @@
 @use "partials/global" as *;
 
 .hero {
-  z-index: 1;
   @include site-padding-mobile;
+  z-index: 1;
   background-image: url(/assets/images/hero-shows.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -16,11 +16,12 @@
   flex-direction: column;
   position: relative;
 
-  @include tablet{
-    height: 70vw;
-    background-position-y:-6rem;
-}
-  
+  @include tablet {
+    @include site-padding-tablet;
+    height: 57vw;
+    background-position-y: -6rem;
+  }
+
   &__overlay {
     @include overlay;
   }
@@ -39,6 +40,10 @@
     padding: 1.5rem 0 1rem;
     color: $primary-light;
     font-weight: 400;
+    @include tablet {
+      @include subheader-tablet;
+      font-weight: 400;
+    }
   }
   &__header {
     @include header-mobile;
@@ -46,11 +51,10 @@
     font-weight: 600;
     color: $primary-light;
 
-    @include tablet{
-        @include page-header-tablet;
-        font-weight: 600;
+    @include tablet {
+      @include page-header-tablet;
+      font-weight: 600;
     }
-
   }
 
   &__player {
@@ -59,35 +63,65 @@
     height: 6rem;
     border: none;
 
-    @include tablet{
-        @include component-padding-tablet;
-        width: 70%;
-        min-height:25%;
-        
+    @include tablet {
+      @include component-padding-tablet;
+      width: 57%;
+      min-height: 30%;
     }
   }
 }
 .shows {
   @include component-padding-mobile;
+  @include tablet {
+    @include component-padding-tablet;
+  }
   &__title {
     @include header-mobile;
     @include site-padding-mobile;
     @include component-padding-mobile;
     font-weight: 600;
     padding-top: 2rem;
+    @include tablet {
+      @include section-header-tablet;
+      @include site-padding-tablet;
+      @include component-padding-tablet;
+      font-weight: 600;
+      padding-top: 2.25rem;
+    }
   }
   &__card {
     @include site-padding-mobile;
     padding-top: 1rem;
-      border-bottom: 1px solid $secondary-neutral;
+    border-bottom: 1px solid $secondary-neutral;
+    @include tablet {
+      @include site-padding-tablet;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__item {
+    @include tablet {
+      width: 33%;
+    }
   }
   &__header {
     font-weight: 600;
     color: $primary-neutral;
     padding-bottom: 0.5rem;
+
+
+    &--display {
+      @include tablet {
+        display: none;
+      }
+    }
   }
   &__text {
     @include component-padding-mobile;
+    @include tablet {
+        padding: 2.25rem 0;
+      }
     &--date {
       font-weight: 600;
     }
@@ -99,9 +133,14 @@
     background-color: $primary-dark;
     color: $primary-light;
     padding: 0.8rem 0;
-    border-radius: 5px;
+    border-radius: 4px;
     border: 0;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
+    @include tablet {
+      min-width: 150px;
+      width: 20%;
+
+    }
   }
 }
