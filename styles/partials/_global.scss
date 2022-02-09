@@ -1,0 +1,315 @@
+@use "mixins" as *;
+@use "colors" as *;
+@use "typography" as *;
+@use "variables" as *;
+
+
+* {
+    font-family: $font-stack;
+    margin: 0;
+    padding: 0;
+  }
+
+%logo-size{
+    min-height: 20px;
+    min-width: 120px;
+  }
+  
+  %icon-container{
+    max-width: 8rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  // Nav-Bar
+  
+  .nav {
+    padding-top: 1rem;
+    background-color: $primary-dark;
+    text-align: center;
+  
+    @include tablet {
+      @include site-padding-tablet;
+      display: flex;
+      align-items: center;
+    }
+    @include desktop {
+      @include site-padding-desktop ;
+    }
+  
+    &__home-link {
+      @include tablet {
+        margin-right: 3rem;
+      }
+    }
+  
+    &__logo {
+      @extend %logo-size;
+      @include site-padding-mobile;
+      padding-bottom: 0.5rem;
+      width: 30%;
+      
+  
+      @include tablet {
+        width: 25%;
+        padding: 0;
+        margin-bottom: -4px;
+      }
+      @include tablet {
+        margin-bottom: -2px;
+      }
+    }
+  
+    &__list {
+      display: flex;
+      padding: 0;
+      width: auto;
+  
+      @include tablet {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 30%;
+      }
+      @include desktop {
+        width: 20%;
+      }
+    }
+  
+    &__link {
+      text-decoration: none;
+    }
+  
+    &__section {
+      list-style-type: none;
+      width: 50%;
+      height: 100%;
+      padding-bottom: .8rem;
+      border-bottom: transparent solid 4px;
+  
+      &:hover {
+        color: $primary-light;
+        border-bottom: $primary-light solid 3px;
+      }
+  
+      @include tablet {
+        width: auto;
+        padding: 1.5rem 0;
+      }
+      @include desktop {
+        padding: 2rem 0;
+        border-bottom: transparent solid 3px;
+        &:hover {
+          color: $primary-light;
+          border-bottom: $primary-light solid 3px;
+        }
+      }
+  
+      &--active {
+        color: $primary-light;
+        border-bottom: $primary-light solid 3px;
+        box-sizing: border-box;
+  
+        @include desktop {
+          width: auto;
+          padding: 2rem 0;
+          border-bottom: $primary-light solid 3px;
+        }
+      }
+    }
+  
+    &__text {
+      @include subheader-mobile;
+      color: $primary-neutral;
+      padding-bottom: 0.2rem;
+      margin: 0;
+      padding: 0;
+  
+      @include tablet {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+  
+      &--active {
+        font-size: 1rem;
+        color: $primary-light;
+      }
+    }
+  }
+
+  // Footer
+
+.footer {
+    @include site-padding-mobile;
+    background-color: $primary-dark;
+    color: $primary-light;
+  
+    @include tablet {
+      @include site-padding-tablet;
+    }
+    @include desktop {
+      @include site-padding-desktop ;
+    }
+  
+    &__header {
+      @include header-mobile;
+      @include component-padding-mobile;
+      padding-top: 1.5rem;
+      font-weight: 600;
+  
+      @include tablet {
+        @include section-header-tablet;
+        visibility: collapse;
+        padding: 0 40% 0 0;
+        font-weight: 600;
+      }
+    }
+  
+    &__mobile-icon-container {
+      @extend %icon-container;
+      padding-bottom: 1.2rem;
+  
+      @include tablet {
+        display: none;
+      }
+    }
+  
+    &__icon-container {
+      @extend %icon-container;
+      display: none;
+  
+      @include tablet {
+        display: flex;
+        padding-bottom: 2.5rem;
+      }
+      
+    }
+  
+    &__tablet-logo {
+      @extend %logo-size;
+      display: none;
+  
+      @include tablet {
+        display: flex;
+        visibility: visible;
+        align-self: flex-end;
+        padding-bottom: 2.5rem;
+      }
+    }
+  
+    &__icon {
+      max-height: 2em;
+  
+      &:hover {
+        color: $primary-light;
+        padding-bottom: 2px;
+        margin-bottom: -4px;
+        border-bottom: $primary-light solid 2px;
+      }
+    }
+  
+    &__card-container {
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: flex-end;
+      }
+    }
+  
+    &__card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  
+      @include tablet {
+        width: 31%;
+      }
+  
+      &--desktop-padding {
+        @include desktop {
+          width: 60%;
+        }
+        @media (min-width: 1600px) {
+          width: 70%;
+        }
+        @media (min-width: 1800px) {
+          width: 90%;
+        }
+      }
+    }
+  
+    &__tablet-header {
+      display: none;
+      
+      @include tablet {
+        @include section-header-tablet;
+        font-weight: 600;
+        padding-bottom: 2rem;
+        display: flex;
+      }
+    }
+  
+    &__subheader {
+      @include footer-copy-tablet;
+      color: $primary-light;
+  
+      &--padding {
+        @include component-padding-mobile;
+  
+        @include tablet {
+          padding-bottom: 1.5rem;
+        }
+      }
+    }
+  
+    &__text {
+      @include footer-copy-tablet;
+      font-size: 14px;
+      color: $secondary-neutral;
+  
+      &--address-padding {
+        padding-bottom: 1rem;
+        
+        @include tablet {
+          padding-bottom: 1.5rem;  
+        }
+      }
+  
+      &--email-styling {
+        margin-bottom: 1.5rem;
+        text-decoration: none;
+       
+        @include tablet {
+          margin-bottom: 2.5rem;
+        }
+  
+        &:hover {
+          color: $primary-light;
+          text-decoration: underline;
+        }
+      }
+    }
+    &__phone-logo {
+      @extend %logo-size;
+      padding-top: 2.5rem;
+      padding-bottom: 0.8rem;
+      
+      @include tablet {
+        display: none;
+      }
+    }
+  
+    &__copyright {
+      @include component-padding-mobile;
+      font-size: 11px;
+      color: $secondary-neutral;
+  
+      @include tablet {
+        @include component-padding-tablet;
+        @include footer-copy-tablet;
+        font-weight: 400;
+      }
+    }
+  }
+  

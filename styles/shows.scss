@@ -1,0 +1,52 @@
+@use "partials/mixins" as *;
+@use "partials/colors" as *;
+@use "partials/typography" as *;
+@use "partials/variables" as *;
+@use "partials/global" as *;
+
+.hero {
+  z-index: 1;
+  @include site-padding-mobile;
+  background-image: url(/assets/images/hero-shows.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+
+  &__overlay {
+    @include overlay;
+  }
+
+  &__container{
+      z-index: 1;
+      height:80%;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  &__title {
+    @include subheader-mobile;
+    padding: 1.5rem 0 1rem;
+    color: $primary-light;
+    font-weight: 400;
+  }
+  &__header {
+      @include header-mobile;
+      font-size:1.6rem;
+      font-weight: 600;
+    color: $primary-light;
+  }
+
+  &__player {
+      margin: 1rem 0 2rem;
+      z-index: 1;
+      height: 6rem;
+      border: none;
+  }
+}
