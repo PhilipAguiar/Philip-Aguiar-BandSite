@@ -4,7 +4,6 @@
 @use "partials/variables" as *;
 @use "partials/global" as *;
 
-
 // Hero Section
 
 .hero {
@@ -51,7 +50,7 @@
       font-weight: 600;
     }
     @include desktop {
-      @include site-padding-desktop ;
+      @include site-padding-desktop;
     }
   }
 }
@@ -67,7 +66,7 @@
     @include site-padding-tablet;
   }
   @include desktop {
-    @include site-padding-desktop ;
+    @include site-padding-desktop;
   }
 
   &__header {
@@ -91,7 +90,6 @@
       margin: auto;
       width: 95%;
     }
-    
   }
 
   &__image {
@@ -114,7 +112,6 @@
     @media (min-width: 1700px) {
       width: 100%;
     }
-   
   }
 
   &__caption {
@@ -143,7 +140,6 @@
         font-size: 22px;
       }
     }
-
   }
 
   &__sub-header {
@@ -178,7 +174,7 @@
       width: 65vw;
     }
   }
-  
+
   &__text {
     color: $primary-dark;
     @include copy-mobile;
@@ -210,7 +206,7 @@
     padding-bottom: 1rem;
   }
   @include desktop {
-    @include site-padding-desktop ;
+    @include site-padding-desktop;
     padding-bottom: 1rem;
   }
 
@@ -237,7 +233,7 @@
 
   &__image {
     @include component-padding-mobile;
-    
+
     @include tablet {
       filter: grayscale(100%);
       width: 31%;
@@ -245,65 +241,147 @@
     }
     @include desktop {
       width: 32%;
-    }&:hover {
-     filter: grayscale(0%);
     }
-    
+    &:hover {
+      filter: grayscale(0%);
+    }
   }
 }
 
 // Comment Section
 
-.comments{
+.comments {
   @include site-padding-mobile;
   @include component-padding-mobile;
 
-  &__title{
+  @include tablet {
+    @include site-padding-tablet;
+    @include component-padding-tablet;
+  }
+
+  &__title {
     @include component-padding-mobile;
     font-weight: 600;
+
+    @include tablet{
+      @include section-header-tablet;
+      font-weight: 600;
+    }
   }
-  &__wrapper{
-     display: flex;
+  &__wrapper {
+    display: flex;
     justify-content: space-between;
     // align-items: flex-start;
-     width: 100%;
+    width: 100%;
+    border-bottom: 1px solid $secondary-neutral;
+
+    @include tablet {
+      
+      width: 80%;
+      margin: auto;
+    }
   }
-  
-  &__image{
-    margin-top: 1.5rem;
+  &__image-containter {
+    width: 20%;
+    text-align: center;
+    @include tablet {
+      width: auto;
+      padding-right: 1rem;
+    }
+    
+  }
+  &__image {
+    background-color: $secondary-neutral;
+    background-size: cover;
     height: 36px;
     width: 36px;
     border-radius: 50%;
-  }
- 
-  &__nameField{
-    display: flex;
-    justify-content: flex-end;
+    
+    &--posted {
+      background-image: url(/assets/images/Mohan-muruge.jpg);
+      background-color: $secondary-neutral;
+      margin-top: 1.5rem;
+    }
   }
 
-  &__form{
+ 
+
+  &__form {
     align-self: flex-end;
-    width: 80%;;
+    width: 80%;
     display: flex;
     flex-direction: column;
+    @include tablet {
+      width: 100%;
+    }
   }
-  &__label{
+  &__label {
     @include labels-buttons-mobile;
     color: $primary-neutral;
-    
   }
-  
-  &__input{
-    margin-bottom: .5rem;;
+
+  &__input {
+    margin-bottom: 0.5rem;
     background-color: $secondary-light;
     padding: 12px;
     border: 1px $secondary-neutral solid;
-    &--large{
+    &--large {
       min-height: 30vw;
+
+      @include tablet{
+        min-height: 10vw;
+      }
     }
   }
-  &__button{
+  &__button {
     @include button;
     padding: auto;
+    @include tablet {
+      align-self: flex-end;
+      margin-bottom: 1rem;
+      
+    }
+  }
+  &__post {
+    @include component-padding-mobile;
+    display: flex;
+    justify-content: space-between;
+    // align-items: flex-start;
+    width: 100%;
+    padding-top: 1rem;
+    border-bottom: 1px solid $secondary-neutral;
+
+    @include tablet {
+      justify-content: stretch;
+      // justify-content: flex-end;
+      // justify-content: stretch;
+      margin: auto;
+      width: 80%;
+    }
+  }
+  &__container {
+    // create mixin
+    align-self: flex-end;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    @include tablet{
+      width: 100%;
+    }
+  }
+  &__info-wrapper {
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__name {
+    @include subheader-mobile;
+  }
+  &__date {
+    @include copy-mobile;
+    color: $primary-neutral;
+  }
+  &__comment {
+    @include copy-mobile;
   }
 }

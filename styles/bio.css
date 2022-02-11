@@ -634,30 +634,68 @@
   padding: 0 1rem;
   padding-bottom: 1rem;
 }
+@media (min-width: 768px) {
+  .comments {
+    padding: 0 2.5rem;
+    padding-bottom: 2.25rem;
+  }
+}
 .comments__title {
   padding-bottom: 1rem;
   font-weight: 600;
+}
+@media (min-width: 768px) {
+  .comments__title {
+    font-size: 2.25rem;
+    line-height: 44px;
+    font-weight: 700;
+    font-weight: 600;
+  }
 }
 .comments__wrapper {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  border-bottom: 1px solid #E1E1E1;
+}
+@media (min-width: 768px) {
+  .comments__wrapper {
+    width: 80%;
+    margin: auto;
+  }
+}
+.comments__image-containter {
+  width: 20%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .comments__image-containter {
+    width: auto;
+    padding-right: 1rem;
+  }
 }
 .comments__image {
-  margin-top: 1.5rem;
+  background-color: #E1E1E1;
+  background-size: cover;
   height: 36px;
   width: 36px;
   border-radius: 50%;
 }
-.comments__nameField {
-  display: flex;
-  justify-content: flex-end;
+.comments__image--posted {
+  background-image: url(/assets/images/Mohan-muruge.jpg);
+  background-color: #E1E1E1;
+  margin-top: 1.5rem;
 }
 .comments__form {
   align-self: flex-end;
   width: 80%;
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 768px) {
+  .comments__form {
+    width: 100%;
+  }
 }
 .comments__label {
   font-size: 10px;
@@ -673,6 +711,11 @@
 }
 .comments__input--large {
   min-height: 30vw;
+}
+@media (min-width: 768px) {
+  .comments__input--large {
+    min-height: 10vw;
+  }
 }
 .comments__button {
   width: 100%;
@@ -692,4 +735,57 @@
     width: 20%;
     margin: 0;
   }
+}
+@media (min-width: 768px) {
+  .comments__button {
+    align-self: flex-end;
+    margin-bottom: 1rem;
+  }
+}
+.comments__post {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1rem;
+  border-bottom: 1px solid #E1E1E1;
+}
+@media (min-width: 768px) {
+  .comments__post {
+    justify-content: stretch;
+    margin: auto;
+    width: 80%;
+  }
+}
+.comments__container {
+  align-self: flex-end;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .comments__container {
+    width: 100%;
+  }
+}
+.comments__info-wrapper {
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.comments__name {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.comments__date {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #AFAFAF;
+}
+.comments__comment {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
 }/*# sourceMappingURL=bio.css.map */
