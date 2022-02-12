@@ -121,7 +121,11 @@ const updateComments = () => {
 }
 
 const getCurrentTime = () =>{
-
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    return today = mm + '/' + dd + '/' + yyyy;
 }
 updateComments();
 
@@ -141,16 +145,11 @@ const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 }
 
 
-
 commentsForm.addEventListener('submit',(event)=>{
     event.preventDefault();
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    today = mm + '/' + dd + '/' + yyyy;
+    
     let name = event.target.name.value;
-    let date = today
+    let date = getCurrentTime();
     let comment = event.target.comment.value;
     let avatar = commentsImage.src
     
