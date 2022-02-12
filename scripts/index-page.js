@@ -6,6 +6,8 @@ let allComments = [
   
       comment:
         "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+
+      avatar: ""  
     },
     {
       name: "Emilie Beach",
@@ -14,6 +16,8 @@ let allComments = [
   
       comment:
         "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+      
+      avatar: ""    
     },
 {
     name: "Connor Walton",
@@ -22,6 +26,8 @@ let allComments = [
 
     comment:
       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+
+    avatar: ""    
   },
 ];
 
@@ -49,7 +55,8 @@ let commentsWrapper = elementCreator("div",'comments__wrapper',comments)
 
 let commentsImagesContainer = elementCreator("div",'comments__image-containter',commentsWrapper)
 
-let commentsImage = elementCreator("div",'comments__image comments__image--posted',commentsImagesContainer);
+let commentsImage = elementCreator("img",'comments__image comments__image--posted',commentsImagesContainer);
+commentsImage.src=("/assets/images/Mohan-muruge.jpg");
 
 let commentsForm = elementCreator("form",'comments__form',commentsWrapper);
 
@@ -75,13 +82,18 @@ let commentsReverseWrapper = elementCreator("div",'comments__reverse-wrapper',co
 
 
 
-const createNewComment = (commentObject) =>{
+const displayComment = (commentObject) =>{
 
     let commentsPost = elementCreator("div",'comments__post',commentsReverseWrapper)
         
     let commentsImageContainter = elementCreator("div",'comments__image-containter',commentsPost)
 
-    elementCreator("div",'comments__image',commentsImageContainter);
+    let createCommentsImage = elementCreator("img",'comments__image',commentsImageContainter)
+
+    if( commentObject.avatar !== ""){
+    createCommentsImage.src = commentObject.avatar;
+    }
+   
 
     let commentsContainer = elementCreator("div",'comments__container',commentsPost);
 
@@ -102,22 +114,26 @@ const updateComments = () => {
     
     allComments.forEach((comment)=>{
         
-        createNewComment(comment)
+        displayComment(comment)
 
          
     })
 }
 
+const getCurrentTime = () =>{
+
+}
 updateComments();
 
 
 
-const addNewComment = (newName,newDate,newComment) =>{
+const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 
     allComments.push({
         name:newName,
         date:newDate,
-        comment:newComment
+        comment:newComment,
+        avatar:newAvatar
     })
 
     updateComments();
@@ -136,7 +152,9 @@ commentsForm.addEventListener('submit',(event)=>{
     let name = event.target.name.value;
     let date = today
     let comment = event.target.comment.value;
-    addNewComment(name,date,comment)
+    let avatar = commentsImage.src
+    
+    addNewComment(name,date,comment,avatar)
     event.target.name.value = ""
     event.target.comment.value = ''
 })
