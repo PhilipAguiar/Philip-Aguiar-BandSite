@@ -152,7 +152,7 @@
         padding: 1.4rem 0 0;
       }
 
-    &--display {
+    &--hidden {
       @include tablet {
         display: none;
       }

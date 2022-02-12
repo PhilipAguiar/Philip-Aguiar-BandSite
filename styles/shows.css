@@ -517,7 +517,7 @@
   }
 }
 @media (min-width: 768px) {
-  .shows__header--display {
+  .shows__header--hidden {
     display: none;
   }
 }

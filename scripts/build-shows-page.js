@@ -79,41 +79,53 @@ let showsWrapper = elementCreator("div","shows__wrapper",shows)
 
 const populateDates = () =>{
 
-    showsList.forEach((show)=>{
+    showsList.forEach((show,index)=>{
 
         // create card
         let showCard = elementCreator("div","shows__card",showsWrapper)
 
-        let showItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
-
+        
         // create Date
+        let showDateItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
 
-        let showsDateHeader = elementCreator("h5","shows__header",showItem)
+        let showsDateHeader = elementCreator("h5","shows__header",showDateItem)
         showsDateHeader.innerText = "DATE";
 
-        let showsDateText = elementCreator("p","shows__text shows__text--date",showItem)
+        let showsDateText = elementCreator("p","shows__text shows__text--date",showDateItem)
         showsDateText.innerText = show.date;
 
         // create Venue
+        let showVenueItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
 
-        let showsVenueHeader = elementCreator("h5","shows__header",showItem)
-        showsVenueHeader.innerText = "DATE";
+        let showsVenueHeader = elementCreator("h5","shows__header",showVenueItem)
+        showsVenueHeader.innerText = "VENUE";
 
-        let showsVenueText = elementCreator("p","shows__text",showItem)
+        let showsVenueText = elementCreator("p","shows__text",showVenueItem)
         showsVenueText.innerText = show.venue
 
         // create Location
+        let showLocationItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
 
-        let showsLocationHeader = elementCreator("h5","shows__header",showItem)
-        showsLocationHeader.innerText = "DATE";
+        let showsLocationHeader = elementCreator("h5","shows__header",showLocationItem)
+        showsLocationHeader.innerText = "LOCATION";
 
-        let showsLocationText = elementCreator("p","shows__text",showItem)
+        let showsLocationText = elementCreator("p","shows__text",showLocationItem)
         showsLocationText.innerText = show.location     
         
         // create Button
 
         let showsButton =  elementCreator("button","shows__button",showCard) 
         showsButton.innerText = "BUY TICKETS" 
+
+        // add class to make headers disappear on tablet+
+
+        if(index>0){
+            showsDateHeader.classList.add("shows__header--hidden")
+            showsVenueHeader.classList.add("shows__header--hidden")
+            showsLocationHeader.classList.add("shows__header--hidden")
+        }
+
+
     })
 }
 
