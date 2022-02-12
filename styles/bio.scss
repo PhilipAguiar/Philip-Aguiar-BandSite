@@ -4,6 +4,19 @@
 @use "partials/variables" as *;
 @use "partials/global" as *;
 
+%container{
+@include comment-width;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      width: 100%;
+    }
+
+
+}
+
 // Hero Section
 
 .hero {
@@ -85,29 +98,27 @@
 
   &__wrapper {
     @include tablet {
+      @include comment-width;
       display: flex;
       flex-direction: column;
       margin: auto;
-      width: 95%;
+      
     }
   }
 
   &__image {
     padding-bottom: 0.5rem;
-    max-width: 100%;
-    aspect-ratio: 1.8;
-    object-fit: cover;
+    width: 100%;
+    height: 50vw;
 
     @include tablet {
-      @include site-padding-tablet;
       @include component-padding-tablet;
+      height: 43vw;
       margin: 0;
     }
     @include desktop {
-      aspect-ratio: 1.9;
-      max-width: 65vw;
+      height: 35vw;;
       margin: auto;
-      text-align: center;
     }
     @media (min-width: 1700px) {
       width: 100%;
@@ -120,7 +131,6 @@
     color: $primary-dark;
 
     @include tablet {
-      @include site-padding-tablet;
       @include component-padding-tablet;
       font-size: 1rem;
     }
@@ -149,7 +159,6 @@
 
     @include tablet {
       @include subheader-tablet;
-      padding: 1.5rem 2.25rem;
     }
     @include desktop {
       padding-left: 0;
@@ -165,7 +174,6 @@
 
   &__text-container {
     @include tablet {
-      @include site-padding-tablet;
       display: flex;
       justify-content: space-between;
     }
@@ -261,10 +269,13 @@
 
   &__title {
     @include component-padding-mobile;
+    padding-top: .5rem;
     font-weight: 600;
 
     @include tablet{
       @include section-header-tablet;
+      @include component-padding-tablet;
+      padding-top: 3rem;
       font-weight: 600;
     }
   }
@@ -276,30 +287,24 @@
     border-bottom: 1px solid $secondary-neutral;
 
     @include tablet {
-      
-      width: 80%;
+      @include comment-width;
       margin: auto;
     }
   }
-  &__image-containter {
-    
-    
-    @include tablet {
-      width: auto;
-      padding-right: 1rem;
-    }
-    
-  }
+ 
   &__image {
     background-color: $secondary-neutral;
     background-size: cover;
     height: 36px;
     width: 36px;
     border-radius: 50%;
+
+    @include tablet{
+      margin-right: .75rem;
+    }
     
     &--posted {
       background-image: url(/assets/images/Mohan-muruge.jpg);
-      background-color: $secondary-neutral;
       margin-top: 1.5rem;
     }
     
@@ -308,13 +313,7 @@
  
 
   &__form {
-    align-self: flex-end;
-    width: 83%;
-    display: flex;
-    flex-direction: column;
-    @include tablet {
-      width: 100%;
-    }
+    @extend %container;
   }
   &__label {
     @include labels-buttons-mobile;
@@ -323,13 +322,13 @@
   }
 
   &__input {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     background-color: $secondary-light;
     padding: 12px;
     border: 1px $secondary-neutral solid;
     &--large {
-      min-height: 30vw;
-
+      min-height: 25vw;
+resize: none;
       @include tablet{
         min-height: 10vw;
       }
@@ -337,6 +336,8 @@
     &--empty{
       border: 1px red solid;
     }
+  }::placeholder{
+    color: $primary-dark;
   }
   &__button {
     @include button;
@@ -350,7 +351,7 @@
   &__reverse-wrapper{
     display: flex;
     flex-direction: column-reverse;
-
+    
   }
   &__post {
     @include component-padding-mobile;
@@ -362,27 +363,22 @@
     border-bottom: 1px solid $secondary-neutral;
 
     @include tablet {
-      justify-content: stretch;
-      // justify-content: flex-end;
-      // justify-content: stretch;
+      @include comment-width;
+      
       margin: auto;
-      width: 80%;
+      
     }
   }
+
   &__container {
-    // create mixin
-    align-self: flex-end;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    @include tablet{
-      width: 100%;
-    }
+    @extend %container;
   }
+  
   &__info-wrapper {
     padding-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &__name {
     @include subheader-mobile;
