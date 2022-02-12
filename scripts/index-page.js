@@ -45,7 +45,7 @@ let commentsWrapper = elementCreator("div",'comments__wrapper',comments)
 let commentsImagesContainer = elementCreator("div",'comments__image-containter',commentsWrapper)
 
 let commentsImage = elementCreator("img",'comments__image comments__image--posted',commentsImagesContainer);
-commentsImage.src=("/assets/images/Mohan-muruge.jpg");
+
 
 let commentsForm = elementCreator("form",'comments__form',commentsWrapper);
 
@@ -77,10 +77,11 @@ const displayComment = (commentObject) =>{
         
     let commentsImageContainter = elementCreator("div",'comments__image-containter',commentsPost)
 
-    let createCommentsImage = elementCreator("img",'comments__image',commentsImageContainter)
+    let createCommentsImage = elementCreator("div",'comments__image',commentsImageContainter)
 
-    if( commentObject.avatar !== ""){
-    createCommentsImage.src = commentObject.avatar;
+    if(commentObject.avatar !== ""){
+        console.log(createCommentsImage.style.backgroundImage)
+        createCommentsImage.style.backgroundImage = commentObject.avatar;
     }
    
 
@@ -140,7 +141,9 @@ commentsForm.addEventListener('submit',(event)=>{
     let name ="";
     let comment ="";
     let date = getCurrentTime();
-    let avatar = commentsImage.src;
+    let avatar = "url(/assets/images/Mohan-muruge.jpg)";
+
+    console.log(avatar)
 
     if(event.target.name.value !== ""){
         name = event.target.name.value;
