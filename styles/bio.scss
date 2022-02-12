@@ -284,6 +284,8 @@
   &__image-containter {
     width: 20%;
     text-align: center;
+    display: flex;
+    justify-content: center;
     @include tablet {
       width: auto;
       padding-right: 1rem;
@@ -341,6 +343,11 @@
       margin-bottom: 1rem;
       
     }
+  }
+  &__reverse-wrapper{
+    display: flex;
+    flex-direction: column-reverse;
+
   }
   &__post {
     @include component-padding-mobile;

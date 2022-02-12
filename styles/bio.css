@@ -667,6 +667,8 @@
 .comments__image-containter {
   width: 20%;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 @media (min-width: 768px) {
   .comments__image-containter {
@@ -741,6 +743,10 @@
     align-self: flex-end;
     margin-bottom: 1rem;
   }
+}
+.comments__reverse-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
 }
 .comments__post {
   padding-bottom: 1rem;
