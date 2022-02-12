@@ -282,10 +282,8 @@
     }
   }
   &__image-containter {
-    width: 20%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    
+    
     @include tablet {
       width: auto;
       padding-right: 1rem;
@@ -311,7 +309,7 @@
 
   &__form {
     align-self: flex-end;
-    width: 80%;
+    width: 83%;
     display: flex;
     flex-direction: column;
     @include tablet {
@@ -321,6 +319,7 @@
   &__label {
     @include labels-buttons-mobile;
     color: $primary-neutral;
+    font-weight: 400;
   }
 
   &__input {
@@ -341,7 +340,7 @@
   }
   &__button {
     @include button;
-    padding: auto;
+    padding: 0;
     @include tablet {
       align-self: flex-end;
       margin-bottom: 1rem;
