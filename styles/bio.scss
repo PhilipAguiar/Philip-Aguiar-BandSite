@@ -304,6 +304,7 @@
       background-color: $secondary-neutral;
       margin-top: 1.5rem;
     }
+    
   }
 
  
@@ -333,6 +334,9 @@
       @include tablet{
         min-height: 10vw;
       }
+    }
+    &--empty{
+      border: 1px red solid;
     }
   }
   &__button {

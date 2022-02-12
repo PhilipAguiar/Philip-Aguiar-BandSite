@@ -1,4 +1,4 @@
-let allComments = [
+let commentList = [
     {
       name: "Miles Acosta",
   
@@ -112,7 +112,7 @@ const displayComment = (commentObject) =>{
 const updateComments = () => {
     commentsReverseWrapper.innerHTML = ""
     
-    allComments.forEach((comment)=>{
+    commentList.forEach((comment)=>{
         
         displayComment(comment)
 
@@ -133,11 +133,11 @@ updateComments();
 
 const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 
-    allComments.push({
-        name:newName,
-        date:newDate,
-        comment:newComment,
-        avatar:newAvatar
+    commentList.push({
+        name: newName,
+        date: newDate,
+        comment: newComment,
+        avatar: newAvatar
     })
 
     updateComments();
@@ -147,13 +147,32 @@ const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 
 commentsForm.addEventListener('submit',(event)=>{
     event.preventDefault();
-    
-    let name = event.target.name.value;
+
+    let name ="";
+    let comment ="";
     let date = getCurrentTime();
-    let comment = event.target.comment.value;
-    let avatar = commentsImage.src
+    let avatar = commentsImage.src;
+
+    if(event.target.name.value !== ""){
+        name = event.target.name.value;
+    }else{
+        event.target.name.classList.add('comments__input--empty');
+        alert("Please enter missing values")
+    }
+
+    if(event.target.comment.value !== ""){
+        comment = event.target.comment.value;
+    }else{
+        console.log(event.target.comment.value)
+        event.target.comment.classList.add('comments__input--empty')
+        alert("Please enter missing values")
+        return;
+    }
+
+    if(name !== "" && comment !== ""){
+        addNewComment(name,date,comment,avatar)
+    }
     
-    addNewComment(name,date,comment,avatar)
     event.target.name.value = ""
     event.target.comment.value = ''
 })
