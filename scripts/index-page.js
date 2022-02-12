@@ -158,6 +158,7 @@ commentsForm.addEventListener('submit',(event)=>{
     }else{
         event.target.name.classList.add('comments__input--empty');
         alert("Please enter missing values")
+        return
     }
 
     if(event.target.comment.value !== ""){
