@@ -513,6 +513,12 @@
     padding: 0;
   }
 }
+.shows__card:hover {
+  background-color: #FAFAFA;
+}
+.shows__card:active {
+  background-color: #E1E1E1;
+}
 @media (min-width: 768px) {
   .shows__item {
     width: 33%;
@@ -582,4 +588,7 @@
 }
 .shows__button--center {
   margin-top: 1rem;
+}
+.shows__button:hover {
+  background-color: #000000;
 }/*# sourceMappingURL=shows.css.map */

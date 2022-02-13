@@ -128,6 +128,7 @@ const populateDates = () =>{
 
             let showsHiddenHeader = document.createElement("h5")
             showsHiddenHeader.classList.add("shows__header")
+            showsHiddenHeader.innerText= " "
 
             showsButton.before(showsHiddenHeader)
             showsButton.classList.add("shows__button--center")

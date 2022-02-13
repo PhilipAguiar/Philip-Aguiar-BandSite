@@ -143,7 +143,14 @@
     @include desktop {
       padding: 0;
     }
+    &:hover{
+      background-color: $secondary-light;
+    }
+    &:active{
+      background-color: $secondary-neutral;
+    }
   }
+
   &__item {
     @include tablet {
       width: 33%;
@@ -157,6 +164,7 @@
       display: flex;
       justify-content: flex-end;
     }
+   
   }
   &__header {
     font-weight: 600;
@@ -193,6 +201,9 @@
     }
     &--center {
       margin-top: 1rem;
+    }
+    &:hover{
+      background-color: $secondary-dark;
     }
   }
 }
