@@ -360,12 +360,25 @@
 @media (min-width: 768px) {
   .hero {
     min-height: 60vw;
-    background-position: bottom;
   }
 }
 @media (min-width: 1280px) {
   .hero {
     min-height: 48vw;
+  }
+}
+@media (min-width: 1700px) {
+  .hero {
+    min-height: 850px;
+  }
+}
+@media (min-width: 768px) {
+  .hero {
+    background-position: bottom;
+  }
+}
+@media (min-width: 1280px) {
+  .hero {
     background-position-y: -3.5rem;
   }
 }
@@ -570,7 +583,7 @@
     width: 49%;
   }
 }
-@media (min-width: 1500px) {
+@media (min-width: 1700px) {
   .about-us__text {
     font-size: 1em;
     line-height: 1.6em;

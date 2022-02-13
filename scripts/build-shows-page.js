@@ -62,15 +62,21 @@ heroHeaderTop.innerText = "Queen of Yellow x"
 let heroHeaderBottom = elementCreator("h1","hero__header",heroContainer)
 heroHeaderBottom.innerText = "For The Stings";
 
-let heroHeaderTopDesktop = elementCreator("h1","hero__header hero__header--desktop",heroContainer)
-heroHeaderTopDesktop.innerText = "Queen of Yellow"
-
-let heroHeaderBottomDesktop = elementCreator("h1","hero__header hero__header--desktop",heroContainer)
-heroHeaderBottomDesktop.innerText = "x For The Stings";
-
 let heroPlayer = elementCreator("iframe","hero__player",hero)
 heroPlayer.setAttribute("src","https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/255766399&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true")
 
+let heroContainerDesktop = elementCreator("div","hero__desktop-container",hero)
+
+let heroContainerHeaderWrapper = elementCreator("div","hero__desktop-wrapper",heroContainerDesktop)
+
+let heroHeaderTopDesktop = elementCreator("h1","hero__header hero__header--desktop",heroContainerHeaderWrapper)
+heroHeaderTopDesktop.innerText = "Queen of Yellow"
+
+let heroHeaderBottomDesktop = elementCreator("h1","hero__header hero__header--desktop",heroContainerHeaderWrapper)
+heroHeaderBottomDesktop.innerText = "x For The Stings";
+
+let heroPlayerDesktop = elementCreator("iframe","hero__player hero__player--desktop",heroContainerDesktop)
+heroPlayerDesktop.setAttribute("src","https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/255766399&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true")
 
 // Shows Section
 

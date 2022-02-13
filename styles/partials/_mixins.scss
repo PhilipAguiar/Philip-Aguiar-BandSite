@@ -2,6 +2,12 @@
 @use "colors" as *;
 // screen size mixins
 
+@mixin small-tablet {
+  @media (min-width: 550px) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (min-width: $tablet-breakpoint) {
     @content;
@@ -12,6 +18,13 @@
   @media (min-width: $desktop-breakpoint) {
     @content;
   }
+}
+
+@mixin large-desktop{
+@media(min-width: 1700px) {
+  @content;
+}
+  
 }
 
 // mobile properties
@@ -134,6 +147,15 @@
   background-repeat: no-repeat;
   display: flex;
   position: relative;
+  @include tablet {
+    min-height: 60vw;
+  }
+  @include desktop {
+    min-height: 48vw;
+  }
+  @include large-desktop {
+    min-height: 850px;
+  }
 }
 @mixin overlay {
   z-index: 0;
