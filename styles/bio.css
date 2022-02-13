@@ -707,11 +707,19 @@
   font-weight: 400;
 }
 .comments__input {
+  box-sizing: border-box;
+  min-height: 36px;
   margin-bottom: 1rem;
   background-color: #FAFAFA;
   padding: 12px;
   border: 1px #E1E1E1 solid;
   border-radius: 4px;
+}
+@media (min-width: 768px) {
+  .comments__input {
+    min-height: 48px;
+    padding: 1rem;
+  }
 }
 .comments__input--large {
   min-height: 25vw;
