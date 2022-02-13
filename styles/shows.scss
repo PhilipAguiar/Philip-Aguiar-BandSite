@@ -62,7 +62,15 @@
       @include page-header-tablet;
       font-weight: 600;
     }
-    
+    @include desktop {
+      display: none;
+    }
+    &--desktop {
+      display: none;
+      @include desktop {
+        display: flex;
+      }
+    }
   }
 
   &__player {
@@ -77,12 +85,12 @@
       min-height: 30%;
     }
     @include desktop {
-        margin: 0;
-        padding: 0;
-        min-height: 20%;
-        width: 45%;
-        
-      }
+      margin: 0;
+      padding: 0;
+      min-height: 20%;
+      width: 45%;
+      margin-top: 3.75rem;
+    }
   }
 }
 .shows {
@@ -112,8 +120,8 @@
     }
 
     @include desktop {
-        padding: 2.25rem 0 0;
-      }
+      padding: 2.25rem 0 0;
+    }
   }
   &__wrapper {
     @include desktop {
@@ -132,33 +140,31 @@
       justify-content: space-between;
       align-items: center;
     }
-    @include desktop{
-        padding: 0;
+    @include desktop {
+      padding: 0;
     }
   }
   &__item {
     @include tablet {
       width: 33%;
     }
-    &--desktop-padding{
-      @include desktop{
+    &--desktop-padding {
+      @include desktop {
         width: 50%;
-
       }
     }
-    &--button-end{
+    &--button-end {
       display: flex;
       justify-content: flex-end;
     }
-    
   }
   &__header {
     font-weight: 600;
     color: $primary-neutral;
     padding-bottom: 0.5rem;
     @include desktop {
-        padding: 1.4rem 0 0;
-      }
+      padding: 1.4rem 0 0;
+    }
 
     &--hidden {
       @include tablet {
@@ -182,12 +188,11 @@
     @include button;
 
     @include tablet {
-      
       min-width: 150px;
       width: 20%;
     }
-    &--center{
-      margin-top: 1rem ;
+    &--center {
+      margin-top: 1rem;
     }
   }
 }

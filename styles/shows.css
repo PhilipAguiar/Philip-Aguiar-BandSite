@@ -411,6 +411,19 @@
     font-weight: 600;
   }
 }
+@media (min-width: 1280px) {
+  .hero__header {
+    display: none;
+  }
+}
+.hero__header--desktop {
+  display: none;
+}
+@media (min-width: 1280px) {
+  .hero__header--desktop {
+    display: flex;
+  }
+}
 .hero__player {
   margin: 1rem 0 2rem;
   z-index: 1;
@@ -430,6 +443,7 @@
     padding: 0;
     min-height: 20%;
     width: 45%;
+    margin-top: 3.75rem;
   }
 }
 

@@ -167,7 +167,6 @@ commentsForm.addEventListener('submit',(event)=>{
     
     }
     document.querySelector(".comments__form").reset();
- 
     event.target.name.classList.remove("comments__input--empty")
     event.target.comment.classList.remove("comments__input--empty")
 })
