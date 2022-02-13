@@ -347,15 +347,15 @@
 }
 
 .hero {
-  z-index: -1;
-  background-image: url(../assets/images/hero-bio.jpg);
+  z-index: 1;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+  background-image: url(../assets/images/hero-bio.jpg);
   background-position: center;
   min-height: 60vw;
-  display: flex;
   align-items: center;
-  position: relative;
 }
 @media (min-width: 768px) {
   .hero {
@@ -696,6 +696,7 @@
   }
 }
 .comments__image--posted {
+  background-color: none;
   background-image: url(/assets/images/Mohan-muruge.jpg);
   margin-top: 1.5rem;
 }
@@ -707,6 +708,7 @@
   font-weight: 400;
 }
 .comments__input {
+  outline: none;
   box-sizing: border-box;
   min-height: 36px;
   margin-bottom: 1rem;

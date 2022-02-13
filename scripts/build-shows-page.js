@@ -83,6 +83,27 @@ showsTitle.innerText = "Shows"
 
 let showsWrapper = elementCreator("div","shows__wrapper",shows)
 
+// create Header container tablet+
+
+let showsHeadersCard = elementCreator("div","shows__header-container shows__header-container--hidden shows__header-container--divider",showsWrapper)
+
+let showsHeadersDateItem = elementCreator("div","shows__item shows__item--desktop-padding",showsHeadersCard)
+
+let showsHeadersDateHeader = elementCreator("div","shows__header",showsHeadersDateItem);
+showsHeadersDateHeader.innerText =("Date")
+
+let showsHeadersVenueItem = elementCreator("div","shows__item",showsHeadersCard)
+
+let showsHeadersVenueHeader = elementCreator("div","shows__header",showsHeadersVenueItem);
+showsHeadersVenueHeader.innerText =("Venue")
+
+let showsHeadersLocationItem = elementCreator("div","shows__item",showsHeadersCard)
+
+let showsHeadersLocationHeader = elementCreator("div","shows__header",showsHeadersLocationItem);
+showsHeadersLocationHeader.innerText =("Location")
+
+let showEmptyItem = elementCreator("div","shows__item",showsHeadersCard)
+
 const populateDates = () =>{
 
     showsList.forEach((show,index)=>{
@@ -94,55 +115,65 @@ const populateDates = () =>{
         // create Date
         let showDateItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
 
-        let showsDateHeader = elementCreator("h5","shows__header",showDateItem)
-        showsDateHeader.innerText = "DATE";
+        let showDateHeader = elementCreator("h5","shows__header",showDateItem)
+        showDateHeader.classList.add("shows__header--hidden")
+        showDateHeader.innerText = "DATE";
 
-        let showsDateText = elementCreator("p","shows__text shows__text--date",showDateItem)
-        showsDateText.innerText = show.date;
+        let showDateText = elementCreator("p","shows__text shows__text--date",showDateItem)
+        
+        showDateText.innerText = show.date;
 
         // create Venue
         let showVenueItem = elementCreator("div","shows__item",showCard)
 
-        let showsVenueHeader = elementCreator("h5","shows__header",showVenueItem)
-        showsVenueHeader.innerText = "VENUE";
+        let showVenueHeader = elementCreator("h5","shows__header",showVenueItem)
+        showVenueHeader.classList.add("shows__header--hidden")
+        showVenueHeader.innerText = "VENUE";
 
-        let showsVenueText = elementCreator("p","shows__text",showVenueItem)
-        showsVenueText.innerText = show.venue
+        let showVenueText = elementCreator("p","shows__text",showVenueItem)
+        showVenueText.innerText = show.venue
 
         // create Location
         let showLocationItem = elementCreator("div","shows__item",showCard)
 
-        let showsLocationHeader = elementCreator("h5","shows__header",showLocationItem)
-        showsLocationHeader.innerText = "LOCATION";
+        let showLocationHeader = elementCreator("h5","shows__header",showLocationItem)
+        showLocationHeader.classList.add("shows__header--hidden")
+        showLocationHeader.innerText = "LOCATION";
 
-        let showsLocationText = elementCreator("p","shows__text",showLocationItem)
-        showsLocationText.innerText = show.location     
+        let showLocationText = elementCreator("p","shows__text",showLocationItem)
+        showLocationText.innerText = show.location     
         
         // create Button
         let showButtonItem = elementCreator("div","shows__item shows__item--button-end",showCard)
 
-        let showsButton =  elementCreator("button","shows__button",showButtonItem) 
-        showsButton.innerText = "BUY TICKETS" 
+        let showButton =  elementCreator("button","shows__button",showButtonItem) 
+        showButton.innerText = "BUY TICKETS" 
 
-        if(index===0){
-
-            let showsHiddenHeader = document.createElement("h5")
-            showsHiddenHeader.classList.add("shows__header")
-            showsHiddenHeader.innerText= " "
-
-            showsButton.before(showsHiddenHeader)
-            showsButton.classList.add("shows__button--center")
-        
-        }
         if(index>0){
 
-            showsDateHeader.classList.add("shows__header--hidden")
-            showsVenueHeader.classList.add("shows__header--hidden")
-            showsLocationHeader.classList.add("shows__header--hidden")
+            showDateHeader.classList.add("shows__header--hidden")
+            showVenueHeader.classList.add("shows__header--hidden")
+            showLocationHeader.classList.add("shows__header--hidden")
         }
 
 
     })
 }
+populateDates();
 
-populateDates()
+let showCards = document.querySelectorAll(".shows__card")
+
+showCards.forEach(showCard=>{
+    
+   showCard.addEventListener("click",(e)=>{
+    clearBackgrounds();
+     e.currentTarget.classList.add("shows__card--active")
+    })
+    
+})
+const clearBackgrounds =() =>{
+    showCards.forEach((showCard)=>{
+        showCard.classList.remove("shows__card--active")
+    })
+}
+

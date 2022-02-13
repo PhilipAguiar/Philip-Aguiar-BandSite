@@ -333,6 +333,26 @@
   }
 }
 
+.shows__card, .shows__header-container {
+  padding: 0 1rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid #E1E1E1;
+}
+@media (min-width: 768px) {
+  .shows__card, .shows__header-container {
+    padding: 0;
+    margin: 0 2.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__card, .shows__header-container {
+    padding: 0;
+  }
+}
+
 .hero {
   z-index: 1;
   background-size: cover;
@@ -494,29 +514,24 @@
     padding: 2.25rem 0 0;
   }
 }
-.shows__card {
-  padding: 0 1rem;
-  padding-top: 1rem;
-  border-bottom: 1px solid #E1E1E1;
+.shows__header-container--divider {
+  border: none;
+}
+.shows__header-container--hidden {
+  display: none;
 }
 @media (min-width: 768px) {
-  .shows__card {
-    padding: 0;
-    margin: 0 2.25rem;
+  .shows__header-container--hidden {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-@media (min-width: 1280px) {
-  .shows__card {
-    padding: 0;
   }
 }
 .shows__card:hover {
   background-color: #FAFAFA;
 }
-.shows__card:active {
+.shows__card--active {
+  background-color: #E1E1E1;
+}
+.shows__card--active:hover {
   background-color: #E1E1E1;
 }
 @media (min-width: 768px) {

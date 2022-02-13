@@ -20,15 +20,12 @@
 // Hero Section
 
 .hero {
-  z-index: -1;
+  @include hero;
   background-image: url(../assets/images/hero-bio.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
   min-height: 60vw;
-  display: flex;
   align-items: center;
-  position: relative;
+
 
   @include tablet {
     min-height: 60vw;
@@ -310,6 +307,7 @@
     }
     
     &--posted {
+      background-color: none;
       background-image: url(/assets/images/Mohan-muruge.jpg);
       margin-top: 1.5rem;
     }
@@ -328,6 +326,7 @@
   }
 
   &__input {
+    outline: none;
     box-sizing: border-box;
     min-height: 36px;
     margin-bottom: 1rem;

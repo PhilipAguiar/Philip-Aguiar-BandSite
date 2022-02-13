@@ -4,6 +4,23 @@
 @use "partials/variables" as *;
 @use "partials/global" as *;
 
+
+%shows-card-properties{
+  @include site-padding-mobile;
+    padding-top: 1rem;
+    border-bottom: 1px solid $secondary-neutral;
+    @include tablet {
+      padding: 0;
+      margin: 0 2.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include desktop {
+      padding: 0;
+    }
+}
+
 .hero {
   @include hero;
   @include site-padding-mobile;
@@ -126,26 +143,37 @@
       padding: 2.25rem 0 0;
     }
   }
+
+  &__header-container{
+    
+    @extend %shows-card-properties;
+
+    &--divider{
+      border: none;
+    }
+    &--hidden{
+      display: none;
+
+      @include tablet{
+       display: flex
+      }
+    }
+    
+  }
+                            
   &__card {
-    @include site-padding-mobile;
-    padding-top: 1rem;
-    border-bottom: 1px solid $secondary-neutral;
-    @include tablet {
-      padding: 0;
-      margin: 0 2.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    @include desktop {
-      padding: 0;
-    }
+    @extend %shows-card-properties;
     &:hover{
       background-color: $secondary-light;
     }
-    &:active{
+
+    &--active{
       background-color: $secondary-neutral;
+      &:hover{
+        background-color: $secondary-neutral;
+      }
     }
+    
   }
 
   &__item {
@@ -196,6 +224,7 @@
       min-width: 150px;
       width: 20%;
     }
+    
     &--center {
       margin-top: 1rem;
     }
