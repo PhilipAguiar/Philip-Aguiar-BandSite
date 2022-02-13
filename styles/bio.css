@@ -797,11 +797,11 @@
 }
 .comments__post {
   padding-bottom: 1rem;
+  border-bottom: 1px solid #E1E1E1;
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding-top: 1rem;
-  border-bottom: 1px solid #E1E1E1;
 }
 @media (min-width: 768px) {
   .comments__post {

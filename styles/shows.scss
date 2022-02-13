@@ -8,7 +8,7 @@
 %shows-card-properties{
   @include site-padding-mobile;
     padding-top: 1rem;
-    border-bottom: 1px solid $secondary-neutral;
+    @include divider;
     @include tablet {
       box-sizing: border-box;
       padding: 24px 18px;
@@ -264,6 +264,7 @@
       }
     }
   }
+
   &__text {
     @include component-padding-mobile;
     @include tablet {
@@ -274,6 +275,7 @@
      
     }
   }
+
   &__button {
     @include button;
 

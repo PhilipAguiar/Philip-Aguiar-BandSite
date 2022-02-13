@@ -279,8 +279,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border-bottom: 1px solid $secondary-neutral;
-
+@include divider;
     @include tablet {
       @include comment-width;
       margin: auto;
@@ -368,12 +367,12 @@
   }
   &__post {
     @include component-padding-mobile;
+    @include divider;
     display: flex;
     justify-content: space-between;
     // align-items: flex-start;
     width: 100%;
     padding-top: 1rem;
-    border-bottom: 1px solid $secondary-neutral;
 
     @include tablet {
       @include comment-width;

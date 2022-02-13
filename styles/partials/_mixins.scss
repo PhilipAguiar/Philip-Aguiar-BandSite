@@ -173,3 +173,8 @@
 @mixin comment-width {
   width: 83%;
 }
+
+// 
+@mixin divider{
+  border-bottom: 1px solid $secondary-neutral;
+}
