@@ -136,15 +136,21 @@ const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 
 commentsForm.addEventListener('submit',(event)=>{
     event.preventDefault();
-
+    
     let name ="";
     let comment ="";
     let date = getCurrentTime();
     let avatar = "url(/assets/images/Mohan-muruge.jpg)";
-
+    
     console.log(avatar)
-
-    if(event.target.name.value !== ""){
+    if(event.target.name.value === "" && event.target.comment.value === ""){
+        event.target.name.classList.add('comments__input--empty');
+        event.target.comment.classList.add('comments__input--empty')
+        alert("Please enter missing values")
+        return;
+    }
+    
+     if(event.target.name.value !== ""){
         name = event.target.name.value;
     }else{
         event.target.name.classList.add('comments__input--empty');
@@ -155,11 +161,13 @@ commentsForm.addEventListener('submit',(event)=>{
     if(event.target.comment.value !== ""){
         comment = event.target.comment.value;
     }else{
-        console.log(event.target.comment.value)
         event.target.comment.classList.add('comments__input--empty')
         alert("Please enter missing values")
         return;
     }
+
+
+
 
     if(name !== "" && comment !== ""){
         addNewComment(name,date,comment,avatar)
