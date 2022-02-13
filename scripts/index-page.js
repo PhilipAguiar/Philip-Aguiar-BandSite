@@ -117,7 +117,6 @@ const getCurrentTime = () =>{
     let yyyy = today.getFullYear();
     return today = mm + '/' + dd + '/' + yyyy;
 }
-updateComments();
 
 
 
@@ -172,3 +171,4 @@ commentsForm.addEventListener('submit',(event)=>{
 })
 
 
+updateComments();

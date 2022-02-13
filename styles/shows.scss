@@ -203,7 +203,7 @@
       margin-top: 1rem;
     }
     &:hover{
-      background-color: $secondary-dark;
+      @include button-hover;
     }
   }
 }

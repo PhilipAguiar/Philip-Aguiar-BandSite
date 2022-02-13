@@ -9,7 +9,7 @@
     align-self: flex-end;
     display: flex;
     flex-direction: column;
-
+    width: 90%;
     @include tablet {
       width: 100%;
     }
@@ -332,9 +332,10 @@
     background-color: $secondary-light;
     padding: 12px;
     border: 1px $secondary-neutral solid;
+    border-radius: 4px;
     &--large {
       min-height: 25vw;
-resize: none;
+      resize: none;
       @include tablet{
         min-height: 10vw;
       }
@@ -342,16 +343,22 @@ resize: none;
     &--empty{
       border: 1px  #D22D2D solid;
     }
-  }::placeholder{
-    color: $primary-dark;
+    &:focus{
+      border: 1px $primary-dark solid;
+    }
+    &::placeholder{
+      color: $primary-dark;
+    }
   }
   &__button {
     @include button;
-    padding: 0;
     @include tablet {
       align-self: flex-end;
       margin-bottom: 1rem;
       
+    }
+    &:hover{
+      @include button-hover;
     }
   }
   &__reverse-wrapper{
