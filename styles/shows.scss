@@ -5,16 +5,13 @@
 @use "partials/global" as *;
 
 .hero {
+  @include hero;
   @include site-padding-mobile;
-  z-index: 1;
   background-image: url(/assets/images/hero-shows.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 90vw;
-  display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
+ 
 
   @include tablet {
     @include site-padding-tablet;

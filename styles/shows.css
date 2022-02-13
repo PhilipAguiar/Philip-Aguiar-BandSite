@@ -334,16 +334,16 @@
 }
 
 .hero {
-  padding: 0 1rem;
   z-index: 1;
-  background-image: url(/assets/images/hero-shows.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 90vw;
   display: flex;
+  position: relative;
+  padding: 0 1rem;
+  background-image: url(/assets/images/hero-shows.jpg);
+  height: 90vw;
   justify-content: center;
   flex-direction: column;
-  position: relative;
 }
 @media (min-width: 768px) {
   .hero {

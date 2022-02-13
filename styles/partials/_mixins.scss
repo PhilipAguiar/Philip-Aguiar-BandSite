@@ -103,19 +103,6 @@
   padding: 0 8rem;
 }
 
-// Overlay
-
-@mixin overlay {
-  z-index: 0;
-  background: #323232;
-  opacity: 0.5;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 // Button
 @mixin button {
   cursor:pointer;
@@ -139,7 +126,27 @@
   background-color: $secondary-dark;
 }
 
-//
+//hero image
+
+@mixin hero{
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+}
+@mixin overlay {
+  z-index: 0;
+  background: #323232;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+//comment
 
 @mixin comment-width {
   width: 83%;
