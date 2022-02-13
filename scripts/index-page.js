@@ -164,10 +164,12 @@ commentsForm.addEventListener('submit',(event)=>{
 
     if(name !== "" && comment !== ""){
         addNewComment(name,date,comment,avatar)
-    }
     
-    event.target.name.value = ""
-    event.target.comment.value = ''
+    }
+    document.querySelector(".comments__form").reset();
+ 
+    event.target.name.classList.remove("comments__input--empty")
+    event.target.comment.classList.remove("comments__input--empty")
 })
 
 

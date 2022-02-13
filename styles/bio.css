@@ -721,7 +721,7 @@
   }
 }
 .comments__input--empty {
-  border: 1px red solid;
+  border: 1px #D22D2D solid;
 }
 .comments ::-moz-placeholder {
   color: #323232;

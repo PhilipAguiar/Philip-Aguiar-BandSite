@@ -95,7 +95,7 @@ const populateDates = () =>{
         showsDateText.innerText = show.date;
 
         // create Venue
-        let showVenueItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
+        let showVenueItem = elementCreator("div","shows__item",showCard)
 
         let showsVenueHeader = elementCreator("h5","shows__header",showVenueItem)
         showsVenueHeader.innerText = "VENUE";
@@ -104,7 +104,7 @@ const populateDates = () =>{
         showsVenueText.innerText = show.venue
 
         // create Location
-        let showLocationItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
+        let showLocationItem = elementCreator("div","shows__item",showCard)
 
         let showsLocationHeader = elementCreator("h5","shows__header",showLocationItem)
         showsLocationHeader.innerText = "LOCATION";
@@ -113,13 +113,22 @@ const populateDates = () =>{
         showsLocationText.innerText = show.location     
         
         // create Button
+        let showButtonItem = elementCreator("div","shows__item shows__item--button-end",showCard)
 
-        let showsButton =  elementCreator("button","shows__button",showCard) 
+        let showsButton =  elementCreator("button","shows__button",showButtonItem) 
         showsButton.innerText = "BUY TICKETS" 
 
-        // add class to make headers disappear on tablet+
+        if(index===0){
 
+            let showsHiddenHeader = document.createElement("h5")
+            showsHiddenHeader.classList.add("shows__header")
+
+            showsButton.before(showsHiddenHeader)
+            showsButton.classList.add("shows__button--center")
+        
+        }
         if(index>0){
+
             showsDateHeader.classList.add("shows__header--hidden")
             showsVenueHeader.classList.add("shows__header--hidden")
             showsLocationHeader.classList.add("shows__header--hidden")
