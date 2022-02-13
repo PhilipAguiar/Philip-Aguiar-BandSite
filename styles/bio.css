@@ -645,6 +645,11 @@
     padding-bottom: 2.25rem;
   }
 }
+@media (min-width: 1280px) {
+  .comments {
+    padding: 0 8rem;
+  }
+}
 .comments__title {
   padding-bottom: 1rem;
   padding-top: 0.5rem;
@@ -670,6 +675,11 @@
   .comments__wrapper {
     width: 83%;
     margin: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__wrapper {
+    width: 47%;
   }
 }
 .comments__image {
@@ -761,6 +771,11 @@
   .comments__post {
     width: 83%;
     margin: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__post {
+    width: 47%;
   }
 }
 .comments__info-wrapper {
