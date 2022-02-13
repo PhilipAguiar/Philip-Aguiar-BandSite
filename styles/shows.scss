@@ -31,10 +31,12 @@
 
   @include tablet {
     @include site-padding-tablet;
+    min-height: 50vw;
     background-position-y: -6rem;
   }
   @include desktop {
     @include site-padding-desktop;
+    min-height: 43vw;
     flex-direction: row;
     align-items: center;
     vertical-align: bottom;
@@ -129,6 +131,7 @@
 
     @include tablet {
       @include component-padding-tablet;
+      margin-top: 4%;
       width: 57%;
       height: 30%;
     }
@@ -145,9 +148,9 @@
       display: none;
       @extend .hero__player;
       @include desktop {
-        
         display: flex;
         max-width: 30rem;
+        margin: 0;
       }
       @include large-desktop{
         max-width: 80rem;

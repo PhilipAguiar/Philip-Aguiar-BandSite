@@ -382,12 +382,14 @@
 @media (min-width: 768px) {
   .hero {
     padding: 0 2.5rem;
+    min-height: 50vw;
     background-position-y: -6rem;
   }
 }
 @media (min-width: 1280px) {
   .hero {
     padding: 0 8rem;
+    min-height: 43vw;
     flex-direction: row;
     align-items: center;
     vertical-align: bottom;
@@ -500,6 +502,7 @@
 @media (min-width: 768px) {
   .hero__player, .hero__player--desktop {
     padding-bottom: 2.25rem;
+    margin-top: 4%;
     width: 57%;
     height: 30%;
   }
@@ -521,6 +524,7 @@
   .hero__player--desktop {
     display: flex;
     max-width: 30rem;
+    margin: 0;
   }
 }
 @media (min-width: 1700px) {
