@@ -10,14 +10,16 @@
     padding-top: 1rem;
     border-bottom: 1px solid $secondary-neutral;
     @include tablet {
-      padding: 0;
+      box-sizing: border-box;
+      padding: 24px 18px;
       margin: 0 2.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     @include desktop {
-      padding: 0;
+      padding: 24px 18px;
+      
     }
 }
 
@@ -199,6 +201,11 @@
   &__header-container{
     
     @extend %shows-card-properties;
+    
+    @include tablet{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
     &--divider{
       border: none;
@@ -260,13 +267,11 @@
   &__text {
     @include component-padding-mobile;
     @include tablet {
-      padding: 2.25rem 0;
+      padding:0;
     }
     &--date {
       font-weight: 600;
-      @include desktop {
-        padding: 2.25rem 0;
-      }
+     
     }
   }
   &__button {
