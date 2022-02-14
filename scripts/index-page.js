@@ -93,7 +93,7 @@ const displayComment = (commentObject) =>{
         .innerText= commentObject.name
 
     elementCreator("p",'comments__date',commentsInfoWrapper)
-        .innerText= commentObject.date
+        .innerText= timeSince(commentObject.date)
 
      elementCreator("p",'comments__comment',commentsContainer)
          .innerText= commentObject.comment   
@@ -112,12 +112,14 @@ const updateComments = () => {
 
 const getCurrentTime = () =>{
     let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
-    return today = mm + '/' + dd + '/' + yyyy;
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+    let hour = today.getHours();
+    let minute = today.getMinutes();
+    let second = today.getSeconds();
+    return `${month}/${day}/${year}/${hour}/${minute}/${second}`
 }
-
 
 
 const addNewComment = (newName,newDate,newComment,newAvatar) =>{
@@ -178,5 +180,76 @@ commentsForm.addEventListener('submit',(event)=>{
     event.target.comment.classList.remove("comments__input--empty")
 })
 
+const timeSince = (commentTime) => {
+    let currentDate = new Date();
+    let currentYear = currentDate.getFullYear();
+    let currentMonth = currentDate.getMonth() + 1;
+    let currentDay = currentDate.getDate();
+    let currentHour = currentDate.getHours();
+    let currentMinute = currentDate.getMinutes();
+    let currentSecond = currentDate.getSeconds();
+    let splitDate =commentTime.split('/')
+    let commentYear = splitDate[2]
+    let commentMonth = splitDate[0]
+    let commentDay = splitDate[1]
+    let commentHour;
+    let commentMinute;
+    let commentSecond;
+
+    if(splitDate.length>3){
+        commentHour = splitDate[3];
+        commentMinute = splitDate[4];
+        commentSecond = splitDate[5];
+    }
+
+    console.log(commentDay)
+    console.log(currentDay)
+    console.log(commentMonth)
+    console.log(currentMonth)
+    console.log(commentYear)
+    console.log(currentYear)
+    
+    
+    if(currentYear != commentYear){
+        if((currentYear - commentYear)===1){
+            return(`1 Year Ago`)
+        }
+        return(`${currentYear - commentYear} Years Ago`)
+        
+    }
+    if(currentMonth != commentMonth){
+        if((currentYear - commentYear)===1){
+            return(`1 Month Ago`)
+        }
+        return(`${currentMonth - commentMonth} Months Ago`)
+        }
+    if(currentDay != commentDay){
+        if((currentDay - commentDay)===1){
+            return(`1 Day Ago`)
+        }
+        return(`${currentDay - commentDay} Days Ago`)
+        }    
+    if(currentHour != commentHour){
+        if((currentHour - commentHour)===1){
+            return(`1 Hour Ago`)
+        }
+        return(`${currentHour - commentHour} Hours Ago`)
+       } 
+    if(currentMinute != commentMinute){
+        if((currentMinute - commentMinute)===1){
+            return(`1 Minute Ago`)
+        }
+        return(`${currentMinute - commentMinute} Minutes Ago`)
+        }       
+    if(currentSecond != commentSecond){
+        if((currentSecond - commentSecond)===1){
+            return(`1 Second Ago`)
+            }
+            return(`${currentSecond - commentSecond} Seconds ago`)
+        }
+
+    return(`Just Now!`)
+
+}
 
 updateComments();
