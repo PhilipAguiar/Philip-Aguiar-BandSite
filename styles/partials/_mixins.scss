@@ -119,6 +119,7 @@
 // Button
 @mixin button {
   cursor:pointer;
+  font-size: 1rem;
   margin-bottom: 1rem;
   width: 100%;
   height: 2.5rem;
@@ -129,8 +130,7 @@
 
 
   @include tablet {
-    min-width: 150px;
-    width: 20%;
+    width: 18.5%;
     margin: 0;
   }
 }

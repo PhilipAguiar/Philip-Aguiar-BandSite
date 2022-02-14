@@ -57,11 +57,13 @@ heroHeaderBottom.innerText = "For The Stings";
 let heroPlayer = elementCreator("iframe","hero__player",hero)
 heroPlayer.setAttribute("src","https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/255766399&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true")
 
+    // special header layout for desktop
 let heroContainerDesktop = elementCreator("div","hero__desktop-container",hero)
 
 let heroContainerHeaderWrapper = elementCreator("div","hero__desktop-wrapper",heroContainerDesktop)
 
-        // special header layout for desktop
+let heroTitleDesktop = elementCreator("h3","hero__title hero__title--desktop",heroContainerHeaderWrapper)
+heroTitleDesktop.innerText = "Beautiful Beasts Album"        
 
 let heroHeaderTopDesktop = elementCreator("h1","hero__header hero__header--desktop",heroContainerHeaderWrapper)
 heroHeaderTopDesktop.innerText = "Queen of Yellow"

@@ -13,7 +13,7 @@
 
     @include tablet {
       box-sizing: border-box;
-      padding: 24px 36px;
+      padding: 1rem 1.25rem;
       margin: 0 1.25rem;
       display: flex;
       justify-content: space-between;
@@ -22,7 +22,6 @@
 
     @include desktop {
       padding: 24px 18px;
-      
     }
 }
 
@@ -34,7 +33,7 @@
   background-image: url(/assets/images/hero-shows.jpg);
   justify-content: center;
   flex-direction: column;
- 
+
   @include tablet {
     @include site-padding-tablet;
     min-height: 50vw;
@@ -43,7 +42,8 @@
 
   @include desktop {
     @include site-padding-desktop;
-    min-height: 43vw;
+    background-position-y: -150px;
+    min-height: 50vw;
     flex-direction: row;
     align-items: center;
     vertical-align: bottom;
@@ -205,6 +205,9 @@
     @include desktop {
       padding: 2.25rem 0 0;
     }
+    @include large-desktop {
+      font-size: 5rem;
+  }
   }
 
   &__wrapper {
@@ -212,8 +215,10 @@
       width: 80%;
       padding: 2.25rem 0 0;
     }
+    @include large-desktop {
+      width: 65%;
   }
-
+  }
   &__header-container{
     @extend %shows-card-properties;
 
@@ -277,6 +282,8 @@
       padding: 1.4rem 0 0;
     }
 
+    
+
     &--hidden {
       @include tablet {
         display: none;
@@ -288,6 +295,7 @@
     @include component-padding-mobile;
 
     @include tablet {
+      font-size: 14px;
       padding:0;
     }
 

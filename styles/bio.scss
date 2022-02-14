@@ -34,10 +34,6 @@
     background-position-y: -3.5rem;
   }
 
-  @include large-desktop {
-    min-height: 850px;
-  }
-
   &__overlay {
     @include overlay;
   }
@@ -315,14 +311,14 @@
     background-size: cover;
     background-position: center;
     background-position-x: -5px;
-    height: 36px;
-    width: 36px;
+    height: 2.25rem;
+    width: 2.25rem;
     border-radius: 50%;
     margin-right: 0.75rem;
 
     @include tablet {
-      height: 48px;
-      width: 48px;
+      height: 3rem;
+      width: 3rem;
     }
 
     &--posted {
@@ -345,7 +341,7 @@
   &__input {
     outline: none;
     box-sizing: border-box;
-    min-height: 36px;
+    min-height: 2.25rem;
     margin-bottom: 1rem;
     background-color: $secondary-light;
     padding: 12px;
@@ -353,7 +349,7 @@
     border-radius: 4px;
 
     @include tablet {
-      min-height: 48px;
+      min-height: 3rem;
       padding: 1rem;
     }
 
