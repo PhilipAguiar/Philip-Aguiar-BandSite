@@ -13,8 +13,8 @@
 
     @include tablet {
       box-sizing: border-box;
-      padding: 24px 18px;
-      margin: 0 2.25rem;
+      padding: 24px 36px;
+      margin: 0 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -209,7 +209,7 @@
 
   &__wrapper {
     @include desktop {
-      width: 75%;
+      width: 80%;
       padding: 2.25rem 0 0;
     }
   }

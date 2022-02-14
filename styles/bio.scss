@@ -362,7 +362,7 @@
       resize: none;
 
       @include tablet {
-        min-height: 10vw;
+        min-height: 12vw;
       }
     }
 
@@ -383,7 +383,8 @@
     @include button;
     @include tablet {
       align-self: flex-end;
-      margin-bottom: 1rem;
+      margin-top: .5rem;;
+      margin-bottom: 1.5rem;
     }
     &:hover {
       @include button-hover;
@@ -401,10 +402,12 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-top: 1rem;
+    padding-top: .7rem;
 
     @include tablet {
       @include comment-width;
+      padding-top: 1.3rem;
+      padding-bottom: 1.3rem;
       margin: auto;
     }
 
