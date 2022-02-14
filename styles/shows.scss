@@ -4,11 +4,13 @@
 @use "partials/variables" as *;
 @use "partials/global" as *;
 
+// empty class for shared properties
 
 %shows-card-properties{
   @include site-padding-mobile;
-    padding-top: 1rem;
-    @include divider;
+  @include divider;
+  padding-top: 1rem;
+
     @include tablet {
       box-sizing: border-box;
       padding: 24px 18px;
@@ -17,11 +19,14 @@
       justify-content: space-between;
       align-items: center;
     }
+
     @include desktop {
       padding: 24px 18px;
       
     }
 }
+
+// Hero Section
 
 .hero {
   @include hero;
@@ -30,12 +35,12 @@
   justify-content: center;
   flex-direction: column;
  
-
   @include tablet {
     @include site-padding-tablet;
     min-height: 50vw;
     background-position-y: -6rem;
   }
+
   @include desktop {
     @include site-padding-desktop;
     min-height: 43vw;
@@ -63,8 +68,8 @@
   }
 
   &__desktop-container{
-    display: none;
     @extend .hero__container;
+    display: none;
 
     @include desktop{
       height: 20%;
@@ -75,7 +80,6 @@
       align-items: flex-end;
     }
 
-    
   }
   &__desktop-wrapper{
 
@@ -83,6 +87,7 @@
      display: flex;
      flex-direction: column
     }
+
     @include large-desktop{
       width: 85%
     }
@@ -93,11 +98,13 @@
     padding: 1.5rem 0 1rem;
     color: $primary-light;
     font-weight: 400;
+
     @include tablet {
       @include subheader-tablet;
       font-weight: 400;
     }
   }
+
   &__header {
     @include header-mobile;
     font-size: 1.6rem;
@@ -108,11 +115,14 @@
       @include page-header-tablet;
       font-weight: 600;
     }
+
     @include desktop {
       display: none;
     }
+
     &--desktop {
       display: none;
+      
       @include desktop {
         display: flex;
       }
@@ -120,9 +130,7 @@
         font-size: 7rem;
         line-height: 1.2;
       }
-      
     }
-
   }
 
   &__player {
@@ -137,6 +145,7 @@
       width: 57%;
       height: 30%;
     }
+
     @include desktop {
       display: none;
       margin: 0;
@@ -147,13 +156,15 @@
     }
 
     &--desktop{
-      display: none;
       @extend .hero__player;
+      display: none;
+
       @include desktop {
         display: flex;
         max-width: 30rem;
         margin: 0;
       }
+
       @include large-desktop{
         max-width: 80rem;
         padding-left: 10%;
@@ -161,17 +172,21 @@
     }
   }
 }
+
 .shows {
   @include component-padding-mobile;
+
   @include tablet {
     @include component-padding-tablet;
   }
+
   @include desktop {
     @include site-padding-desktop;
     @include component-padding-tablet;
     display: flex;
     justify-content: space-between;
   }
+
   &__title {
     @include header-mobile;
     @include site-padding-mobile;
@@ -191,6 +206,7 @@
       padding: 2.25rem 0 0;
     }
   }
+
   &__wrapper {
     @include desktop {
       width: 75%;
@@ -199,9 +215,8 @@
   }
 
   &__header-container{
-    
     @extend %shows-card-properties;
-    
+
     @include tablet{
       padding-top: 0;
       padding-bottom: 0;
@@ -222,6 +237,7 @@
                             
   &__card {
     @extend %shows-card-properties;
+    
     &:hover{
       background-color: $secondary-light;
     }
@@ -239,21 +255,24 @@
     @include tablet {
       width: 33%;
     }
+
     &--desktop-padding {
       @include desktop {
         width: 50%;
       }
     }
+
     &--button-end {
       display: flex;
       justify-content: flex-end;
     }
-   
   }
+
   &__header {
     font-weight: 600;
     color: $primary-neutral;
     padding-bottom: 0.5rem;
+
     @include desktop {
       padding: 1.4rem 0 0;
     }
@@ -267,9 +286,11 @@
 
   &__text {
     @include component-padding-mobile;
+
     @include tablet {
       padding:0;
     }
+
     &--date {
       font-weight: 600;
      

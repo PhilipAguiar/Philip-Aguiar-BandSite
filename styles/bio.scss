@@ -4,6 +4,8 @@
 @use "partials/variables" as *;
 @use "partials/global" as *;
 
+// empty class for shared size properties
+
 %container {
   @include comment-width;
   align-self: flex-end;
@@ -27,6 +29,7 @@
   @include tablet {
     background-position: bottom;
   }
+  
   @include desktop {
     background-position-y: -3.5rem;
   }
@@ -49,11 +52,13 @@
     @include small-tablet {
       font-size: 2.5em;
     }
+
     @include tablet {
       @include page-header-tablet;
       @include site-padding-tablet;
       font-weight: 600;
     }
+
     @include desktop {
       @include site-padding-desktop;
     }
@@ -70,6 +75,7 @@
   @include tablet {
     @include site-padding-tablet;
   }
+
   @include desktop {
     @include site-padding-desktop;
   }
@@ -107,10 +113,12 @@
       height: 43vw;
       margin: 0;
     }
+
     @include desktop {
       height: 35vw;
       margin: auto;
     }
+
     @include large-desktop {
       width: 100%;
     }
@@ -125,6 +133,7 @@
       @include component-padding-tablet;
       font-size: 1rem;
     }
+
     @include desktop {
       width: 79%;
       padding-left: 0;
@@ -137,6 +146,7 @@
         @include subheader-tablet;
         padding-bottom: 1rem;
       }
+
       @include desktop {
         font-size: 22px;
       }
@@ -151,6 +161,7 @@
     @include tablet {
       @include subheader-tablet;
     }
+
     @include desktop {
       padding-left: 0;
     }
@@ -168,6 +179,7 @@
       display: flex;
       justify-content: space-between;
     }
+    
     @include desktop {
       margin: auto;
       width: 65vw;
@@ -175,18 +187,20 @@
   }
 
   &__text {
-    color: $primary-dark;
     @include copy-mobile;
     @include component-padding-mobile;
+    color: $primary-dark;
 
     @include tablet {
       @include body-copy-tablet;
       @include component-padding-tablet;
       width: 47%;
     }
+
     @include desktop {
       width: 49%;
     }
+
     @include large-desktop{
       font-size: 1em;
       line-height: 1.6em;
@@ -204,6 +218,7 @@
     @include site-padding-tablet;
     padding-bottom: 1rem;
   }
+
   @include desktop {
     @include site-padding-desktop;
     padding-bottom: 1rem;
@@ -223,6 +238,7 @@
   &__container {
     display: flex;
     flex-direction: column;
+
     @include tablet {
       flex-direction: row;
       flex-wrap: wrap;
@@ -238,9 +254,11 @@
       width: 31%;
       padding-bottom: 1.5rem;
     }
+
     @include desktop {
       width: 32%;
     }
+
     &:hover {
       filter: grayscale(0%);
     }
@@ -257,6 +275,7 @@
     @include site-padding-tablet;
     @include component-padding-tablet;
   }
+
   @include desktop {
     @include site-padding-desktop;
     @include component-padding-tablet;
@@ -276,14 +295,16 @@
     
   }
   &__wrapper {
+    @include divider;
     display: flex;
     justify-content: space-between;
     width: 100%;
-@include divider;
+
     @include tablet {
       @include comment-width;
       margin: auto;
     }
+
     @include desktop {
       width: 47%;
     }
@@ -303,6 +324,7 @@
       height: 48px;
       width: 48px;
     }
+
     &--posted {
       background-color: none;
       background-image: url(/assets/images/Mohan-muruge.jpg);
@@ -313,6 +335,7 @@
   &__form {
     @extend %container;
   }
+
   &__label {
     @include labels-buttons-mobile;
     color: $primary-neutral;
@@ -337,20 +360,25 @@
     &--large {
       min-height: 30vw;
       resize: none;
+
       @include tablet {
         min-height: 10vw;
       }
     }
+
     &--empty {
       border: 1px #d22d2d solid;
     }
+
     &:focus {
       border: 1px $primary-dark solid;
     }
+
     &::placeholder {
       color: $primary-dark;
     }
   }
+
   &__button {
     @include button;
     @include tablet {
@@ -361,16 +389,17 @@
       @include button-hover;
     }
   }
+
   &__reverse-wrapper {
     display: flex;
     flex-direction: column-reverse;
   }
+
   &__post {
     @include component-padding-mobile;
     @include divider;
     display: flex;
     justify-content: space-between;
-    // align-items: flex-start;
     width: 100%;
     padding-top: 1rem;
 
@@ -394,13 +423,16 @@
     justify-content: space-between;
     align-items: center;
   }
+
   &__name {
     @include subheader-mobile;
   }
+
   &__date {
     @include copy-mobile;
     color: $primary-neutral;
   }
+  
   &__comment {
     @include copy-mobile;
   }

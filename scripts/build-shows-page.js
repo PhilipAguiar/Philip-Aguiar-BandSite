@@ -1,3 +1,5 @@
+// Array object that houses show objects
+
 let showsList= [
     {
         date:"Mon Sept 06 2021",
@@ -29,17 +31,7 @@ let showsList= [
         venue:"Press Club",
         location:"San Francisco, CA"
     }
-]
-
-
-
-
-
-
-
-
-
-
+];
 
 // Header Section
 
@@ -69,6 +61,8 @@ let heroContainerDesktop = elementCreator("div","hero__desktop-container",hero)
 
 let heroContainerHeaderWrapper = elementCreator("div","hero__desktop-wrapper",heroContainerDesktop)
 
+        // special header layout for desktop
+
 let heroHeaderTopDesktop = elementCreator("h1","hero__header hero__header--desktop",heroContainerHeaderWrapper)
 heroHeaderTopDesktop.innerText = "Queen of Yellow"
 
@@ -89,7 +83,7 @@ showsTitle.innerText = "Shows"
 
 let showsWrapper = elementCreator("div","shows__wrapper",shows)
 
-// create Header container tablet+
+        // create Header container tablet+
 
 let showsHeadersCard = elementCreator("div","shows__header-container shows__header-container--hidden shows__header-container--divider",showsWrapper)
 
@@ -110,6 +104,8 @@ showsHeadersLocationHeader.innerText =("Location")
 
 let showEmptyItem = elementCreator("div","shows__item",showsHeadersCard)
 
+// function that populates show objects into the page
+
 const populateDates = () =>{
 
     showsList.forEach((show,index)=>{
@@ -117,7 +113,6 @@ const populateDates = () =>{
         // create card
         let showCard = elementCreator("div","shows__card",showsWrapper)
 
-        
         // create Date
         let showDateItem = elementCreator("div","shows__item shows__item--desktop-padding",showCard)
 
@@ -155,31 +150,34 @@ const populateDates = () =>{
         let showButton =  elementCreator("button","shows__button",showButtonItem) 
         showButton.innerText = "BUY TICKETS" 
 
-        if(index>0){
+        // special modifier classes needed for tablet+ sizes
 
+        if(index>0){
             showDateHeader.classList.add("shows__header--hidden")
             showVenueHeader.classList.add("shows__header--hidden")
             showLocationHeader.classList.add("shows__header--hidden")
         }
 
-
     })
 }
-populateDates();
+
+// event listener for shows card animations
 
 let showCards = document.querySelectorAll(".shows__card")
 
 showCards.forEach(showCard=>{
-    
    showCard.addEventListener("click",(e)=>{
     clearBackgrounds();
      e.currentTarget.classList.add("shows__card--active")
     })
-    
+
 })
+//  function that clears the active show card background property from non active cards
 const clearBackgrounds =() =>{
     showCards.forEach((showCard)=>{
         showCard.classList.remove("shows__card--active")
     })
 }
+// initilize dates
 
+populateDates();

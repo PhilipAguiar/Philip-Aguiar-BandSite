@@ -1,3 +1,5 @@
+// Array that holds Comment Objects
+
 let commentList = [
     {
       name: "Miles Acosta",
@@ -31,6 +33,7 @@ let commentList = [
   },
 ];
 
+// Create comment Section
 
 let comments = document.createElement("section");
 comments.classList.add("comments");
@@ -41,12 +44,8 @@ elementCreator("h2",'comments__title',comments)
     .innerText = "Join the Conversation";
 
 let commentsWrapper = elementCreator("div",'comments__wrapper',comments)
-
 let commentsImagesContainer = elementCreator("div",'comments__image-containter',commentsWrapper)
-
 let commentsImage = elementCreator("img",'comments__image comments__image--posted',commentsImagesContainer);
-
-
 let commentsForm = elementCreator("form",'comments__form',commentsWrapper);
 
 let commentsNameLabel = elementCreator("label",'comments__label',commentsForm)
@@ -69,24 +68,19 @@ let commentsButton = elementCreator("button",'comments__button',commentsForm)
     
 let commentsReverseWrapper = elementCreator("div",'comments__reverse-wrapper',comments)
 
-
+// function that creates new comment to screen
 
 const displayComment = (commentObject) =>{
 
     let commentsPost = elementCreator("div",'comments__post',commentsReverseWrapper)
-        
     let commentsImageContainter = elementCreator("div",'comments__image-containter',commentsPost)
-
     let createCommentsImage = elementCreator("div",'comments__image',commentsImageContainter)
 
     if(commentObject.avatar !== ""){
-        console.log(createCommentsImage.style.backgroundImage)
         createCommentsImage.style.backgroundImage = commentObject.avatar;
-    }
-   
+    }   
 
     let commentsContainer = elementCreator("div",'comments__container',commentsPost);
-
     let commentsInfoWrapper = elementCreator("div",'comments__info-wrapper',commentsContainer);
 
     elementCreator("h5",'comments__name',commentsInfoWrapper)
@@ -97,18 +91,19 @@ const displayComment = (commentObject) =>{
 
      elementCreator("p",'comments__comment',commentsContainer)
          .innerText= commentObject.comment   
-
 }
+
+// function that refreshes the comment page
+
 const updateComments = () => {
     commentsReverseWrapper.innerHTML = ""
-    
-    commentList.forEach((comment)=>{
-        
-        displayComment(comment)
 
-         
+    commentList.forEach((comment)=>{        
+        displayComment(comment)
     })
 }
+
+// function that gets current time at the time of form submitting
 
 const getCurrentTime = () =>{
     let today = new Date();
@@ -121,6 +116,7 @@ const getCurrentTime = () =>{
     return `${month}/${day}/${year}/${hour}/${minute}/${second}`
 }
 
+// funtion that adds new comment object to comment list
 
 const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 
@@ -130,21 +126,20 @@ const addNewComment = (newName,newDate,newComment,newAvatar) =>{
         comment: newComment,
         avatar: newAvatar
     })
-
     updateComments();
-
 }
 
+// Event Listener to submit a new comment
 
 commentsForm.addEventListener('submit',(event)=>{
     event.preventDefault();
-    
     let name ="";
     let comment ="";
     let date = getCurrentTime();
     let avatar = "url(/assets/images/Mohan-muruge.jpg)";
-    
-    console.log(avatar)
+
+    // Handle errors if any fields are empty
+
     if(event.target.name.value === "" && event.target.comment.value === ""){
         event.target.name.classList.add('comments__input--empty');
         event.target.comment.classList.add('comments__input--empty')
@@ -154,7 +149,7 @@ commentsForm.addEventListener('submit',(event)=>{
     
      if(event.target.name.value !== ""){
         name = event.target.name.value;
-    }else{
+    } else{
         event.target.name.classList.add('comments__input--empty');
         alert("Please enter missing values")
         return
@@ -162,23 +157,22 @@ commentsForm.addEventListener('submit',(event)=>{
 
     if(event.target.comment.value !== ""){
         comment = event.target.comment.value;
-    }else{
+    } else{
         event.target.comment.classList.add('comments__input--empty')
         alert("Please enter missing values")
         return;
     }
 
-
-
-
     if(name !== "" && comment !== ""){
         addNewComment(name,date,comment,avatar)
-    
     }
+
     document.querySelector(".comments__form").reset();
     event.target.name.classList.remove("comments__input--empty")
     event.target.comment.classList.remove("comments__input--empty")
 })
+
+// function that converts comment dates into
 
 const timeSince = (commentTime) => {
     let currentDate = new Date();
@@ -201,14 +195,6 @@ const timeSince = (commentTime) => {
         commentMinute = splitDate[4];
         commentSecond = splitDate[5];
     }
-
-    console.log(commentDay)
-    console.log(currentDay)
-    console.log(commentMonth)
-    console.log(currentMonth)
-    console.log(commentYear)
-    console.log(currentYear)
-    
     
     if(currentYear != commentYear){
         if((currentYear - commentYear)===1){
@@ -247,9 +233,9 @@ const timeSince = (commentTime) => {
             }
             return(`${currentSecond - commentSecond} Seconds ago`)
         }
-
     return(`Just Now!`)
-
 }
+
+// initilize default comments
 
 updateComments();

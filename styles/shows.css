@@ -335,8 +335,8 @@
 
 .shows__card, .shows__header-container {
   padding: 0 1rem;
-  padding-top: 1rem;
   border-bottom: 1px solid #E1E1E1;
+  padding-top: 1rem;
 }
 @media (min-width: 768px) {
   .shows__card, .shows__header-container {
