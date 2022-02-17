@@ -175,7 +175,9 @@ const populateDates = () =>{
 
     })
 }
+// initilize dates
 
+populateDates();
 // event listener for shows card animations
 
 let showCards = document.querySelectorAll(".shows__card")
@@ -193,6 +195,3 @@ const clearBackgrounds =() =>{
         showCard.classList.remove("shows__card--active")
     })
 }
-// initilize dates
-
-populateDates();
