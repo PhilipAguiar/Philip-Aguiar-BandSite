@@ -43,7 +43,7 @@ axios
   .then((result) => {
      console.log(result.data)
     result.data.forEach((comment)=>{
-        commentList.push(comment);
+        commentList.unshift(comment);
        displayComment(comment)
        
     })
@@ -91,7 +91,10 @@ let commentsReverseWrapper = elementCreator("div",'comments__reverse-wrapper',co
 
 const displayComment = (commentObject) =>{
 
-    let commentsPost = elementCreator("div",'comments__post',commentsReverseWrapper)
+    let commentsPost = document.createElement('div')
+    commentsPost.classList.add("comments__post")
+    commentsReverseWrapper.prepend(commentsPost)
+
     let commentsImageContainter = elementCreator("div",'comments__image-containter',commentsPost)
     let createCommentsImage = elementCreator("div",'comments__image',commentsImageContainter)
 

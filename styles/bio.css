@@ -789,7 +789,7 @@
 }
 .comments__reverse-wrapper {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 .comments__post {
   padding-bottom: 1rem;
