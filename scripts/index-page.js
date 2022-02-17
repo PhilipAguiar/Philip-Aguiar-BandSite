@@ -110,11 +110,18 @@ const updateComments = () => {
     `https://project-1-api.herokuapp.com/comments?api_key=${api_key}`
   )
   .then((result) => {
-      commentsReverseWrapper.innerHTML = ""
-     
-    result.data.forEach((comment)=>{
+    commentsReverseWrapper.innerHTML = ""
+    
+    // Changes logic for first 3 cards so all comments are sorted by dates
+
+    for(let i = 2; i>=0; i--){
+        displayComment(result.data[i]);
+    }
+
+    result.data.forEach((comment, index)=>{
+        if(index>2){
        displayComment(comment);
-       
+        }
     })
     
     
