@@ -40,8 +40,8 @@ axios
     `https://project-1-api.herokuapp.com/showdates?api_key=${api_key}`
   )
   .then((result) => {
-
-    console.log(result.data);
+    console.log(result.data)
+    populateDates(result.data)
     
   })
   .catch((error) => {});
@@ -121,7 +121,7 @@ let showEmptyItem = elementCreator("div","shows__item",showsHeadersCard)
 
 // function that populates show objects into the page
 
-const populateDates = () =>{
+const populateDates = (showsList) =>{
 
     showsList.forEach((show,index)=>{
 
@@ -137,7 +137,9 @@ const populateDates = () =>{
 
         let showDateText = elementCreator("p","shows__text shows__text--date",showDateItem)
         
-        showDateText.innerText = show.date;
+        let newDate = new Date(parseInt(show.date));
+        console.log(newDate)
+        showDateText.innerText = newDate;
 
         // create Venue
         let showVenueItem = elementCreator("div","shows__item",showCard)
@@ -147,7 +149,7 @@ const populateDates = () =>{
         showVenueHeader.innerText = "VENUE";
 
         let showVenueText = elementCreator("p","shows__text",showVenueItem)
-        showVenueText.innerText = show.venue
+        showVenueText.innerText = show.place
 
         // create Location
         let showLocationItem = elementCreator("div","shows__item",showCard)
