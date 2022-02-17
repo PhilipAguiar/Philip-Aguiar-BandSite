@@ -41,7 +41,7 @@ axios
   )
   .then((result) => {
 
-    console.log(result);
+    console.log(result.data);
     
   })
   .catch((error) => {});

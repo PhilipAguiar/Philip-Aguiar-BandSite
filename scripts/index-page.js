@@ -1,38 +1,56 @@
+const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 // Array that holds Comment Objects
 
-let commentList = [
-    {
-      name: "Miles Acosta",
+// let commentList = [
+//     {
+//       name: "Miles Acosta",
   
-      date: "12/20/2020",
+//       date: "12/20/2020",
   
-      comment:
-        "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+//       comment:
+//         "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
 
-      avatar: ""  
-    },
-    {
-      name: "Emilie Beach",
+//       avatar: ""  
+//     },
+//     {
+//       name: "Emilie Beach",
   
-      date: "01/09/2021",
+//       date: "01/09/2021",
   
-      comment:
-        "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+//       comment:
+//         "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
       
-      avatar: ""    
-    },
-{
-    name: "Connor Walton",
+//       avatar: ""    
+//     },
+// {
+//     name: "Connor Walton",
 
-    date: "02/17/2021",
+//     date: "02/17/2021",
 
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+//     comment:
+//       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
 
-    avatar: ""    
-  },
-];
+//     avatar: ""    
+//   },
+// ];
 
+let commentList = []
+
+axios
+  .get(
+    `https://project-1-api.herokuapp.com/comments?api_key=${api_key}`
+  )
+  .then((result) => {
+     console.log(result.data)
+    result.data.forEach((comment)=>{
+        commentList.push(comment);
+       displayComment(comment)
+       
+    })
+    
+    
+  })
+  .catch((error) => {});
 
 // Create comment Section
 
@@ -88,10 +106,12 @@ const displayComment = (commentObject) =>{
         .innerText= commentObject.name
 
     elementCreator("p",'comments__date',commentsInfoWrapper)
-        .innerText= timeSince(commentObject.date)
+        .innerText= commentObject.timestamp
 
      elementCreator("p",'comments__comment',commentsContainer)
          .innerText= commentObject.comment   
+         
+         
 }
 
 // function that refreshes the comment page
@@ -239,4 +259,4 @@ const timeSince = (commentTime) => {
 
 // initilize default comments
 
-updateComments();
+
