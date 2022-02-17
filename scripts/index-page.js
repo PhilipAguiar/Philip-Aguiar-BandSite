@@ -34,23 +34,7 @@ const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 //   },
 // ];
 
-let commentList = []
 
-axios
-  .get(
-    `https://project-1-api.herokuapp.com/comments?api_key=${api_key}`
-  )
-  .then((result) => {
-     console.log(result.data)
-    result.data.forEach((comment)=>{
-        commentList.unshift(comment);
-       displayComment(comment)
-       
-    })
-    
-    
-  })
-  .catch((error) => {});
 
 // Create comment Section
 
@@ -120,11 +104,22 @@ const displayComment = (commentObject) =>{
 // function that refreshes the comment page
 
 const updateComments = () => {
-    commentsReverseWrapper.innerHTML = ""
-
-    commentList.forEach((comment)=>{        
-        displayComment(comment)
+    
+    axios
+  .get(
+    `https://project-1-api.herokuapp.com/comments?api_key=${api_key}`
+  )
+  .then((result) => {
+      commentsReverseWrapper.innerHTML = ""
+     
+    result.data.forEach((comment)=>{
+       displayComment(comment);
+       
     })
+    
+    
+  })
+  .catch((error) => {});
 }
 
 // function that gets current time at the time of form submitting
@@ -142,15 +137,33 @@ const getCurrentTime = (milliseconds) =>{
 
 // funtion that adds new comment object to comment list
 
-const addNewComment = (newName,newTimestamp,newComment,newAvatar) =>{
+const addNewComment = (newName,newComment) =>{
 
-    commentList.push({
-        name: newName,
-        timestamp: newTimestamp,
-        comment: newComment,
-        avatar: newAvatar
-    })
+    axios
+  .post(
+    `https://project-1-api.herokuapp.com/comments?api_key=${api_key}`,{
+        name:newName,
+        comment: newComment
+    }
+  )
+  .then((result) => {
+      
     updateComments();
+     console.log(result)
+    
+       
+    })
+    
+  .catch((error) => {});
+
+
+    // commentList.push({
+    //     name: newName,
+    //     timestamp: newTimestamp,
+    //     comment: newComment,
+    //     avatar: newAvatar
+    // })
+    
 }
 
 // Event Listener to submit a new comment
@@ -190,7 +203,7 @@ commentsForm.addEventListener('submit',(event)=>{
     }
 
     if(name !== "" && comment !== ""){
-        addNewComment(name,timestamp,comment,avatar)
+        addNewComment(name,comment)
     }
 
     document.querySelector(".comments__form").reset();
@@ -265,3 +278,4 @@ const timeSince = (commentTime) => {
 // initilize default comments
 
 
+updateComments();
