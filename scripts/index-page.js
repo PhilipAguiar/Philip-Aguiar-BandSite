@@ -106,7 +106,7 @@ const displayComment = (commentObject) =>{
         .innerText= commentObject.name
 
     elementCreator("p",'comments__date',commentsInfoWrapper)
-        .innerText= commentObject.timestamp
+        .innerText= timeSince(getCurrentTime(commentObject.timestamp))
 
      elementCreator("p",'comments__comment',commentsContainer)
          .innerText= commentObject.comment   
@@ -126,8 +126,8 @@ const updateComments = () => {
 
 // function that gets current time at the time of form submitting
 
-const getCurrentTime = () =>{
-    let today = new Date();
+const getCurrentTime = (milliseconds) =>{
+    let today = new Date(milliseconds);
     let year = today.getFullYear();
     let month = today.getMonth() + 1;
     let day = today.getDate();
@@ -139,11 +139,11 @@ const getCurrentTime = () =>{
 
 // funtion that adds new comment object to comment list
 
-const addNewComment = (newName,newDate,newComment,newAvatar) =>{
+const addNewComment = (newName,newTimestamp,newComment,newAvatar) =>{
 
     commentList.push({
         name: newName,
-        date: newDate,
+        timestamp: newTimestamp,
         comment: newComment,
         avatar: newAvatar
     })
@@ -154,9 +154,11 @@ const addNewComment = (newName,newDate,newComment,newAvatar) =>{
 
 commentsForm.addEventListener('submit',(event)=>{
     event.preventDefault();
+    
+    
     let name ="";
     let comment ="";
-    let date = getCurrentTime();
+    let timestamp = Date.now();
     let avatar = "url(/assets/images/Mohan-muruge.jpg)";
 
     // Handle errors if any fields are empty
@@ -185,7 +187,7 @@ commentsForm.addEventListener('submit',(event)=>{
     }
 
     if(name !== "" && comment !== ""){
-        addNewComment(name,date,comment,avatar)
+        addNewComment(name,timestamp,comment,avatar)
     }
 
     document.querySelector(".comments__form").reset();
