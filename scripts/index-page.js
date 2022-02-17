@@ -33,6 +33,7 @@ let commentList = [
   },
 ];
 
+
 // Create comment Section
 
 let comments = document.createElement("section");

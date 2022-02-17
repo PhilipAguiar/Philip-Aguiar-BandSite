@@ -1,3 +1,5 @@
+const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
+
 // Array object that houses show objects
 
 let showsList= [
@@ -32,6 +34,17 @@ let showsList= [
         location:"San Francisco, CA"
     }
 ];
+
+axios
+  .get(
+    `https://project-1-api.herokuapp.com/comments?api_key=${api_key}`
+  )
+  .then((result) => {
+
+    console.log(result);
+    
+  })
+  .catch((error) => {});
 
 // Header Section
 
