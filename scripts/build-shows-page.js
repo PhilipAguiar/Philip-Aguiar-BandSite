@@ -1,40 +1,5 @@
 const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 
-// Array object that houses show objects
-
-// let showsList= [
-//     {
-//         date:"Mon Sept 06 2021",
-//         venue:"Ronald Lane",
-//         location:"San Francisco, CA"
-//     },
-//     {
-//         date:"Tues Sept 21 2021",
-//         venue:"Pier 3 East",
-//         location:"San Francisco, CA"
-//     },
-//     {
-//         date:"Fri Oct 15 2021",
-//         venue:"View Lounge",
-//         location:"San Francisco, CA"
-//     },
-//      {
-//         date:"Sat Nov 06 2021",
-//         venue:"Hyatt Agency",
-//         location:"San Francisco, CA"
-//     },
-//      {
-//         date:"Fri Noc 26 2021",
-//         venue:"Moscow Center",
-//         location:"San Francisco, CA"
-//     }, 
-//     {
-//         date:"Wed Dec 15 2021",
-//         venue:"Press Club",
-//         location:"San Francisco, CA"
-//     }
-// ];
-
 axios
   .get(
     `https://project-1-api.herokuapp.com/showdates?api_key=${api_key}`
@@ -98,7 +63,7 @@ showsTitle.innerText = "Shows"
 
 let showsWrapper = elementCreator("div","shows__wrapper",shows)
 
-        // create Header container tablet+
+// create Header container tablet+
 
 let showsHeadersCard = elementCreator("div","shows__header-container shows__header-container--hidden shows__header-container--divider",showsWrapper)
 
@@ -138,8 +103,8 @@ const populateDates = (showsList) =>{
         let showDateText = elementCreator("p","shows__text shows__text--date",showDateItem)
         
         let newDate = new Date(parseInt(show.date));
-        console.log(newDate)
-        showDateText.innerText = newDate;
+    
+        showDateText.innerText = newDate.toDateString()  ;
 
         // create Venue
         let showVenueItem = elementCreator("div","shows__item",showCard)
