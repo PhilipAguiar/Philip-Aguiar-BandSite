@@ -130,7 +130,8 @@
 
 
   @include tablet {
-    width: 18.5%;
+    min-width: 150px;
+    width: 20%;
     margin: 0;
   }
 }

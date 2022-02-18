@@ -692,6 +692,11 @@
     width: 47%;
   }
 }
+.comments__image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .comments__image {
   background-color: #E1E1E1;
   background-size: cover;
@@ -700,7 +705,6 @@
   height: 2.25rem;
   width: 2.25rem;
   border-radius: 50%;
-  margin-right: 0.75rem;
 }
 @media (min-width: 768px) {
   .comments__image {
@@ -773,13 +777,13 @@
 }
 @media (min-width: 768px) {
   .comments__button {
-    width: 18.5%;
+    min-width: 150px;
+    width: 20%;
     margin: 0;
   }
 }
 @media (min-width: 768px) {
   .comments__button {
-    width: 25%;
     align-self: flex-end;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
