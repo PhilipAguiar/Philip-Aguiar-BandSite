@@ -134,10 +134,10 @@
     width: 20%;
     margin: 0;
   }
-}
 
-@mixin button-hover {
-  background-color: $secondary-dark;
+  &:hover {
+    background-color: $secondary-dark;
+  }
 }
 
 //hero image
