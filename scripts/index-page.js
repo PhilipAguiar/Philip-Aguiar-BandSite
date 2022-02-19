@@ -121,7 +121,11 @@ const displayComment = (commentObject) => {
   elementCreator("p", "comments__comment", commentsTextWrapper).innerText =
     commentObject.comment;
 
-  
+
+
+ let deleteButton = elementCreator("button", "comments__delete", commentsPost)
+  deleteButton.innerText = "✖️";
+  deleteButton.setAttribute("name", commentObject.id)
 };
 
 // function that refreshes the comment page
@@ -145,6 +149,7 @@ const updateComments = () => {
         }
       });
       addLikeButtonEventListeners();
+      addDeleteEventListeners();
     })
     .catch((error) => {});
 };
@@ -296,26 +301,36 @@ const addLikeButtonEventListeners = () => {
   });
 };
 
-// const findCommentId = (name, comment) => {
-//   axios
-//     .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
+const addDeleteEventListeners = () => {
+  let commentDeleteButtons = document.querySelectorAll(".comments__delete");
+  console.log(commentDeleteButtons);
 
-//     .then((result) => {
-//       result.data.forEach((commentObject) => {
-//         if(commentObject.name === name && commentObject.comment === comment){
-//             return commentObject.id
-//         }
-//          console.error("There is no comment that matches")
-//       });
-//     })
-//     .catch((error) => {});
-// };
+  commentDeleteButtons.forEach((commentDeleteButton) => {
+    commentDeleteButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      deleteComment(event.target.name);
+    });
+  });
+};
 
 const addLikes = (comment_id) => {
   axios
     .put(
       `https://project-1-api.herokuapp.com/comments/${comment_id}/like?api_key=${api_key}`,
       {}
+    )
+    .then((result) => {
+      updateComments();
+      console.log(result);
+    })
+
+    .catch((error) => {});
+};
+
+const deleteComment = (comment_id) => {
+  axios
+    .delete(
+      `https://project-1-api.herokuapp.com/comments/${comment_id}?api_key=${api_key}`
     )
     .then((result) => {
       updateComments();
