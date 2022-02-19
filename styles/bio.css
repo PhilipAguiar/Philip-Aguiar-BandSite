@@ -750,6 +750,9 @@
     min-width: 100%;
   }
 }
+.comments__likes:hover {
+  background-color: #000000;
+}
 .comments__label {
   font-size: 10px;
   line-height: 20px;

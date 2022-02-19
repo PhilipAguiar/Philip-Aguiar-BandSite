@@ -348,7 +348,12 @@
     margin: 0;
     min-width:100%;
     
-  }}
+  }
+  &:hover {
+    @include button-hover;
+    
+  }
+}
 
   &__form {
     @extend %container;

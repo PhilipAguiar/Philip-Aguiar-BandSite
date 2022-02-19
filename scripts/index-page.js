@@ -2,65 +2,10 @@ const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 
 // Create comment Section
 
-let comments = document.createElement("section");
-comments.classList.add("comments");
-document.querySelector(".photo-gallery").after(comments);
-
-elementCreator("h2", "comments__title", comments).innerText =
-  "Join the Conversation";
-
-let commentsWrapper = elementCreator("div", "comments__wrapper", comments);
-let commentsImagesContainer = elementCreator(
-  "div",
-  "comments__image-container",
-  commentsWrapper
-);
-let commentsImage = elementCreator(
-  "img",
-  "comments__image comments__image--posted",
-  commentsImagesContainer
-);
-let commentsForm = elementCreator("form", "comments__form", commentsWrapper);
-
-let commentsNameLabel = (elementCreator(
-  "label",
-  "comments__label",
-  commentsForm
-).innerText = "NAME");
-
-let commentsNameInput = elementCreator(
-  "input",
-  "comments__input",
-  commentsForm
-);
-commentsNameInput.setAttribute("type", "text");
-commentsNameInput.setAttribute("placeholder", "Enter your name");
-commentsNameInput.setAttribute("name", "name");
-
-let commentsCommentLabel = (elementCreator(
-  "label",
-  "comments__label",
-  commentsForm
-).innerText = "COMMENT");
-
-let commentsTextInput = elementCreator(
-  "textArea",
-  "comments__input comments__input--large",
-  commentsForm
-);
-commentsTextInput.setAttribute("placeholder", "Add a new comment");
-commentsTextInput.setAttribute("name", "comment");
-
-let commentsButton = (elementCreator(
-  "button",
-  "comments__button",
-  commentsForm
-).innerText = "COMMENT");
-
-let commentsReverseWrapper = elementCreator(
-  "div",
-  "comments__reverse-wrapper",
-  comments
+let comments = document.querySelector(".comments")
+console.log()
+let commentsReverseWrapper = elementCreator("div",
+"comments__reverse-wrapper",comments
 );
 
 // function that creates new comment to screen
@@ -84,9 +29,6 @@ const displayComment = (commentObject) => {
   if (commentObject.avatar !== "") {
     createCommentsImage.style.backgroundImage = commentObject.avatar;
   }
-
-  // elementCreator("p", "comments__likes-counter", commentsImageContainer).innerText =
-  //   commentObject.likes;
 
   let likesButton = elementCreator(
     "button",
@@ -184,6 +126,7 @@ const addNewComment = (newName, newComment) => {
 };
 
 // Event Listener to submit a new comment
+let commentsForm = document.querySelector(".comments__form")
 
 commentsForm.addEventListener("submit", (event) => {
   event.preventDefault();
