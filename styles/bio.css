@@ -97,7 +97,7 @@
   width: 50%;
   height: 100%;
   padding-bottom: 0.8rem;
-  border-bottom: transparent solid 4px;
+  border-bottom: transparent solid 3px;
 }
 .nav__section:hover {
   color: #FFFFFF;

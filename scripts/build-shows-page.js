@@ -3,7 +3,6 @@ const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 axios
   .get(`https://project-1-api.herokuapp.com/showdates?api_key=${api_key}`)
   .then((result) => {
-    console.log(result.data);
     populateDates(result.data);
   })
   .catch((error) => {});
