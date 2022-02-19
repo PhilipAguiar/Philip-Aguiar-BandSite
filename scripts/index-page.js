@@ -2,72 +2,35 @@ const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 
 // Create comment Section
 
-let comments = document.querySelector(".comments")
-console.log()
-let commentsReverseWrapper = elementCreator("div",
-"comments__reverse-wrapper",comments
-);
+const comments = document.querySelector(".comments");
+const commentsReverseWrapper = elementCreator("div", "comments__reverse-wrapper", comments);
 
 // function that creates new comment to screen
 
 const displayComment = (commentObject) => {
-  let commentsPost = document.createElement("div");
+  const commentsPost = document.createElement("div");
   commentsPost.classList.add("comments__post");
   commentsReverseWrapper.prepend(commentsPost);
 
-  let commentsImageContainer = elementCreator(
-    "div",
-    "comments__image-container",
-    commentsPost
-  );
-  let createCommentsImage = elementCreator(
-    "div",
-    "comments__image",
-    commentsImageContainer
-  );
+  const commentsImageContainer = elementCreator("div", "comments__image-container", commentsPost);
+  const createCommentsImage = elementCreator("div", "comments__image", commentsImageContainer);
 
-  if (commentObject.avatar !== "") {
-    createCommentsImage.style.backgroundImage = commentObject.avatar;
-  }
-
-  let likesButton = elementCreator(
-    "button",
-    "comments__likes",
-    commentsImageContainer
-  );
+  const likesButton = elementCreator("button", "comments__likes", commentsImageContainer);
   likesButton.innerText = `${commentObject.likes} 👍 `;
   likesButton.setAttribute("name", commentObject.id);
-  let commentsContainer = elementCreator(
-    "div",
-    "comments__container",
-    commentsPost
-  );
-  let commentsInfoWrapper = elementCreator(
-    "div",
-    "comments__info-wrapper",
-    commentsContainer
-  );
 
-  elementCreator("h5", "comments__name", commentsInfoWrapper).innerText =
-    commentObject.name;
+  const commentsContainer = elementCreator("div", "comments__container", commentsPost);
+  const commentsInfoWrapper = elementCreator("div", "comments__info-wrapper", commentsContainer);
+  const commentsName = (elementCreator("h5", "comments__name", commentsInfoWrapper).innerText = commentObject.name);
 
-  elementCreator("p", "comments__date", commentsInfoWrapper).innerText =
-    timeSince(getCurrentTime(commentObject.timestamp));
+  const commentsDate = (elementCreator("p", "comments__date", commentsInfoWrapper).innerText = timeSince(getCurrentTime(commentObject.timestamp)));
 
-  let commentsTextWrapper = elementCreator(
-    "div",
-    "comments__info-wrapper",
-    commentsContainer
-  );
+  const commentsTextWrapper = elementCreator("div", "comments__info-wrapper", commentsContainer);
+  const commentsComment = (elementCreator("p", "comments__comment", commentsTextWrapper).innerText = commentObject.comment);
 
-  elementCreator("p", "comments__comment", commentsTextWrapper).innerText =
-    commentObject.comment;
-
-
-
- let deleteButton = elementCreator("button", "comments__delete", commentsPost)
+  const deleteButton = elementCreator("button", "comments__delete", commentsPost);
   deleteButton.innerText = "✖️";
-  deleteButton.setAttribute("name", commentObject.id)
+  deleteButton.setAttribute("name", commentObject.id);
 };
 
 // function that refreshes the comment page
@@ -99,13 +62,13 @@ const updateComments = () => {
 // function that gets current time at the time of form submitting
 
 const getCurrentTime = (milliseconds) => {
-  let today = new Date(milliseconds);
-  let year = today.getFullYear();
-  let month = today.getMonth() + 1;
-  let day = today.getDate();
-  let hour = today.getHours();
-  let minute = today.getMinutes();
-  let second = today.getSeconds();
+  const today = new Date(milliseconds);
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  const hour = today.getHours();
+  const minute = today.getMinutes();
+  const second = today.getSeconds();
   return `${month}/${day}/${year}/${hour}/${minute}/${second}`;
 };
 
@@ -126,7 +89,7 @@ const addNewComment = (newName, newComment) => {
 };
 
 // Event Listener to submit a new comment
-let commentsForm = document.querySelector(".comments__form")
+const commentsForm = document.querySelector(".comments__form");
 
 commentsForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -172,17 +135,17 @@ commentsForm.addEventListener("submit", (event) => {
 // function that converts comment dates into
 
 const timeSince = (commentTime) => {
-  let currentDate = new Date();
-  let currentYear = currentDate.getFullYear();
-  let currentMonth = currentDate.getMonth() + 1;
-  let currentDay = currentDate.getDate();
-  let currentHour = currentDate.getHours();
-  let currentMinute = currentDate.getMinutes();
-  let currentSecond = currentDate.getSeconds();
-  let splitDate = commentTime.split("/");
-  let commentYear = splitDate[2];
-  let commentMonth = splitDate[0];
-  let commentDay = splitDate[1];
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDay = currentDate.getDate();
+  const currentHour = currentDate.getHours();
+  const currentMinute = currentDate.getMinutes();
+  const currentSecond = currentDate.getSeconds();
+  const splitDate = commentTime.split("/");
+  const commentYear = splitDate[2];
+  const commentMonth = splitDate[0];
+  const commentDay = splitDate[1];
   let commentHour;
   let commentMinute;
   let commentSecond;
@@ -233,7 +196,7 @@ const timeSince = (commentTime) => {
 };
 
 const addLikeButtonEventListeners = () => {
-  let commentLikeButtons = document.querySelectorAll(".comments__likes");
+  const commentLikeButtons = document.querySelectorAll(".comments__likes");
   console.log(commentLikeButtons);
 
   commentLikeButtons.forEach((commentLikeButton) => {
@@ -245,7 +208,7 @@ const addLikeButtonEventListeners = () => {
 };
 
 const addDeleteEventListeners = () => {
-  let commentDeleteButtons = document.querySelectorAll(".comments__delete");
+  const commentDeleteButtons = document.querySelectorAll(".comments__delete");
   console.log(commentDeleteButtons);
 
   commentDeleteButtons.forEach((commentDeleteButton) => {
@@ -258,10 +221,7 @@ const addDeleteEventListeners = () => {
 
 const addLikes = (comment_id) => {
   axios
-    .put(
-      `https://project-1-api.herokuapp.com/comments/${comment_id}/like?api_key=${api_key}`,
-      {}
-    )
+    .put(`https://project-1-api.herokuapp.com/comments/${comment_id}/like?api_key=${api_key}`, {})
     .then((result) => {
       updateComments();
       console.log(result);
@@ -272,9 +232,7 @@ const addLikes = (comment_id) => {
 
 const deleteComment = (comment_id) => {
   axios
-    .delete(
-      `https://project-1-api.herokuapp.com/comments/${comment_id}?api_key=${api_key}`
-    )
+    .delete(`https://project-1-api.herokuapp.com/comments/${comment_id}?api_key=${api_key}`)
     .then((result) => {
       updateComments();
       console.log(result);
