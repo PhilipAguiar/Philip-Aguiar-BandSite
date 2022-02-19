@@ -8,7 +8,7 @@
 
 %container {
   @include comment-width;
-  align-self: flex-end;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -320,6 +320,7 @@
     height: 2.25rem;
     width: 2.25rem;
     border-radius: 50%;
+    margin-bottom: .2rem;;
 
     @include tablet {
       height: 3rem;
@@ -333,6 +334,20 @@
     }
 
   }
+
+  &__likes{
+    @include button;
+    @include labels-buttons-mobile;
+    margin: 0.2rem 0 0;
+    font-weight: 400;
+    max-height: 1.5rem;
+
+    @include tablet{
+    padding: 0px;
+    margin: 0;
+    min-width:100%;
+    
+  }}
 
   &__form {
     @extend %container;
@@ -402,17 +417,15 @@
   }
 
   &__post {
-    @include component-padding-mobile;
     @include divider;
     display: flex;
-    justify-content: space-between;
     width: 100%;
     padding-top: .7rem;
+    padding-bottom: .7rem;
 
     @include tablet {
       @include comment-width;
-      padding-top: 1.3rem;
-      padding-bottom: 1.3rem;
+      
       margin: auto;
     }
 
@@ -423,6 +436,7 @@
 
   &__container {
     @extend %container;
+    margin-left: 0.8rem;
   }
 
   &__info-wrapper {

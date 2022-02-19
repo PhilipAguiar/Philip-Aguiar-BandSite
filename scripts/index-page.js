@@ -85,16 +85,15 @@ const displayComment = (commentObject) => {
     createCommentsImage.style.backgroundImage = commentObject.avatar;
   }
 
-  elementCreator("p", "comments__likes-counter", commentsImageContainer).innerText =
-    commentObject.likes;
+  // elementCreator("p", "comments__likes-counter", commentsImageContainer).innerText =
+  //   commentObject.likes;
 
   let likesButton = elementCreator(
     "button",
     "comments__likes",
     commentsImageContainer
   );
-
-  likesButton.innerText = "likes";
+  likesButton.innerText = `${commentObject.likes} 👍 `;
   likesButton.setAttribute("name", commentObject.id);
   let commentsContainer = elementCreator(
     "div",
@@ -186,7 +185,6 @@ commentsForm.addEventListener("submit", (event) => {
 
   let name = "";
   let comment = "";
-  let timestamp = Date.now();
   let avatar = "url(/assets/images/Mohan-muruge.jpg)";
 
   // Handle errors if any fields are empty
