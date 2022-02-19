@@ -1,7 +1,5 @@
 @use "partials/mixins" as *;
 @use "partials/colors" as *;
-@use "partials/typography" as *;
-@use "partials/variables" as *;
 @use "partials/global" as *;
 
 // empty class for shared size properties
@@ -459,7 +457,7 @@
     background: none;
     border: none;
     right: 0;
-    bottom:.5rem;
+    bottom:.4rem;
   }
 
   &__name {
