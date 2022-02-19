@@ -547,6 +547,7 @@
 @media (min-width: 1280px) {
   .shows {
     padding: 0 8rem;
+    padding-bottom: 2.25rem;
     display: flex;
     justify-content: space-between;
   }
@@ -567,6 +568,7 @@
     font-weight: 700;
     padding: 0 2.5rem;
     padding-bottom: 2.25rem;
+    font-weight: 600;
     padding-top: 2.25rem;
   }
 }
