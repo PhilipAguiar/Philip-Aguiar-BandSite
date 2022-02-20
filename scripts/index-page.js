@@ -8,9 +8,13 @@ const commentsReverseWrapper = elementCreator("div", "comments__reverse-wrapper"
 // function that creates new comment to screen
 
 const displayComment = (commentObject) => {
+  
+  // Create container element
   const commentsPost = document.createElement("div");
   commentsPost.classList.add("comments__post");
   commentsReverseWrapper.prepend(commentsPost);
+
+// Create Image and Like element
 
   const commentsImageContainer = elementCreator("div", "comments__image-container", commentsPost);
   const createCommentsImage = elementCreator("div", "comments__image", commentsImageContainer);
@@ -18,6 +22,8 @@ const displayComment = (commentObject) => {
   const likesButton = elementCreator("button", "comments__likes", commentsImageContainer);
   likesButton.innerText = `${commentObject.likes} 👍 `;
   likesButton.setAttribute("name", commentObject.id);
+
+// create comments info section
 
   const commentsContainer = elementCreator("div", "comments__container", commentsPost);
   const commentsInfoWrapper = elementCreator("div", "comments__info-wrapper", commentsContainer);
@@ -39,7 +45,6 @@ const updateComments = () => {
   axios
     .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
     .then((result) => {
-      console.log(result);
       commentsReverseWrapper.innerHTML = "";
 
       // Changes logic for first 3 cards so all comments are sorted by dates
@@ -82,7 +87,6 @@ const addNewComment = (newName, newComment) => {
     })
     .then((result) => {
       updateComments();
-      console.log(result);
     })
 
     .catch((error) => {});
@@ -96,7 +100,6 @@ commentsForm.addEventListener("submit", (event) => {
 
   let name = "";
   let comment = "";
-  let avatar = "url(/assets/images/Mohan-muruge.jpg)";
 
   // Handle errors if any fields are empty
 
@@ -197,7 +200,6 @@ const timeSince = (commentTime) => {
 
 const addLikeButtonEventListeners = () => {
   const commentLikeButtons = document.querySelectorAll(".comments__likes");
-  console.log(commentLikeButtons);
 
   commentLikeButtons.forEach((commentLikeButton) => {
     commentLikeButton.addEventListener("click", (event) => {
@@ -209,7 +211,6 @@ const addLikeButtonEventListeners = () => {
 
 const addDeleteEventListeners = () => {
   const commentDeleteButtons = document.querySelectorAll(".comments__delete");
-  console.log(commentDeleteButtons);
 
   commentDeleteButtons.forEach((commentDeleteButton) => {
     commentDeleteButton.addEventListener("click", (event) => {
@@ -224,7 +225,6 @@ const addLikes = (comment_id) => {
     .put(`https://project-1-api.herokuapp.com/comments/${comment_id}/like?api_key=${api_key}`, {})
     .then((result) => {
       updateComments();
-      console.log(result);
     })
 
     .catch((error) => {});
@@ -235,7 +235,6 @@ const deleteComment = (comment_id) => {
     .delete(`https://project-1-api.herokuapp.com/comments/${comment_id}?api_key=${api_key}`)
     .then((result) => {
       updateComments();
-      console.log(result);
     })
 
     .catch((error) => {});

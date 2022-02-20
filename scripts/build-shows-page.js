@@ -1,5 +1,7 @@
 const api_key = "8c459552-b57f-4ec1-9203-190b3b6a41f7";
 
+// Api Request for Shows Data
+
 axios
   .get(`https://project-1-api.herokuapp.com/showdates?api_key=${api_key}`)
   .then((result) => {
@@ -7,7 +9,7 @@ axios
   })
   .catch((error) => {});
 
-// Header Section
+// Creating Header Section
 
 const header = document.querySelector("header");
 
@@ -32,6 +34,7 @@ const heroPlayer = elementCreator("iframe", "hero__player", hero);
 heroPlayer.setAttribute("src", "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/255766399&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true");
 
 // special header layout for desktop
+
 const heroContainerDesktop = elementCreator("div", "hero__desktop-container", hero);
 
 const heroContainerHeaderWrapper = elementCreator("div", "hero__desktop-wrapper", heroContainerDesktop);
@@ -95,9 +98,7 @@ const populateDates = (showsList) => {
     showDateHeader.innerText = "DATE";
 
     const showDateText = elementCreator("p", "shows__text shows__text--date", showDateItem);
-
     const newDate = new Date(parseInt(show.date));
-
     showDateText.innerText = newDate.toDateString();
 
     // create Venue
@@ -134,11 +135,12 @@ const populateDates = (showsList) => {
       showLocationHeader.classList.add("shows__header--hidden");
     }
   });
+
   addShowsCardEventListeners();
 };
-// initilize dates
 
-// event listener for shows card animations
+// Function that adds event listener for shows card animations to be called when elements are loaded on screen
+
 function addShowsCardEventListeners() {
   const showCards = document.querySelectorAll(".shows__card");
   showCards.forEach((showCard) => {
@@ -150,6 +152,7 @@ function addShowsCardEventListeners() {
 }
 
 //  function that clears the active show card background property from non active cards
+
 const clearBackgrounds = () => {
   const showCards = document.querySelectorAll(".shows__card");
   showCards.forEach((showCard) => {

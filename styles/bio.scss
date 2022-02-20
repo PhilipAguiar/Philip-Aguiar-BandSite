@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   width: 90%;
+
   @include tablet {
     width: 100%;
   }
@@ -27,7 +28,7 @@
   @include tablet {
     background-position: bottom;
   }
-  
+
   @include desktop {
     background-position-y: -3.5rem;
   }
@@ -170,7 +171,7 @@
       display: flex;
       justify-content: space-between;
     }
-    
+
     @include desktop {
       margin: auto;
       width: 65vw;
@@ -192,7 +193,7 @@
       width: 49%;
     }
 
-    @include large-desktop{
+    @include large-desktop {
       font-size: 1em;
       line-height: 1.6em;
     }
@@ -283,7 +284,6 @@
       padding-top: 3rem;
       font-weight: 600;
     }
-    
   }
   &__wrapper {
     @include divider;
@@ -301,11 +301,13 @@
     }
   }
 
-  &__image-container{
+  &__image-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-right: 0.8rem;
+    padding-bottom: 0.5rem;
   }
 
   &__image {
@@ -316,7 +318,7 @@
     height: 2.25rem;
     width: 2.25rem;
     border-radius: 50%;
-    margin-bottom: .2rem;;
+    margin-bottom: 0.2rem;
 
     @include tablet {
       height: 3rem;
@@ -328,23 +330,22 @@
       background-image: url(/assets/images/Mohan-muruge.jpg);
       margin-top: 1.4rem;
     }
-
   }
 
-  &__likes{
+  &__likes {
     @include button;
     @include labels-buttons-mobile;
+    justify-self: flex-end;
     margin: 0.2rem 0 0;
     font-weight: 400;
     max-height: 1.5rem;
 
-    @include tablet{
-    padding: 0px;
-    margin: 0;
-    min-width:100%;
-    
+    @include tablet {
+      padding: 0;
+      margin: 0;
+      min-width: 100%;
+    }
   }
-}
 
   &__form {
     @extend %container;
@@ -395,17 +396,12 @@
 
   &__button {
     @include button;
+
     @include tablet {
-      
       align-self: flex-end;
-      margin-top: .5rem;;
+      margin-top: 0.5rem;
       margin-bottom: 1.5rem;
     }
-  }
-
-  &__reverse-wrapper {
-    display: flex;
-    flex-direction: column;
   }
 
   &__post {
@@ -413,12 +409,12 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding-top: .7rem;
-    padding-bottom: .7rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
     position: relative;
+
     @include tablet {
       @include comment-width;
-      
       margin: auto;
     }
 
@@ -429,7 +425,6 @@
 
   &__container {
     @extend %container;
-    
   }
 
   &__info-wrapper {
@@ -439,13 +434,14 @@
     align-items: flex-end;
   }
 
-  &__delete{
-    cursor:pointer;
+  &__delete {
+    cursor: pointer;
     position: absolute;
     background: none;
+    height: fit-content;
     border: none;
     right: 0;
-    bottom:.4rem;
+    bottom: 0rem;
   }
 
   &__name {
@@ -456,7 +452,7 @@
     @include copy-mobile;
     color: $primary-neutral;
   }
-  
+
   &__comment {
     @include copy-mobile;
   }
